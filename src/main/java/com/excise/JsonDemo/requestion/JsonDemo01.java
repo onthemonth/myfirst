@@ -1,4 +1,4 @@
-package com.excise.JsonDemo;
+package com.excise.JsonDemo.requestion;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.JSONObject;
@@ -37,7 +37,9 @@ public class JsonDemo01 {
         String str = obj.toString();
         JSONObject jsonObject = JSONObject.parseObject(str);
         Map map=JSONObject.parseObject(jsonObject.toString(),Map.class);
-        System.out.println("json--->map====="+map);
+        System.out.println("json--->map=====" + map);
+
+        System.out.println(map.get("in"));
         //JSONObject.
         System.out.println("json---->string==="+jsonObject.toString());
         Set set=$01.keySet();
@@ -49,7 +51,7 @@ public class JsonDemo01 {
 
     @Test
     public void jsonToMap(){
-        //×îÍâ²ã
+        //æœ€å¤–å±‚
         JSONObject params0 = new JSONObject();
         //head
         JSONObject params1 = new JSONObject();
@@ -63,7 +65,7 @@ public class JsonDemo01 {
         //feeList
         JSONObject params = new JSONObject();
         params.put("zs_id","5646723496");
-        params.put("zs_name","·¢ÉúµÄ");
+        params.put("zs_name","å‘ç”Ÿçš„");
         params.put("yy_id","01");
         params.put("diagnosis","0gaga1");
         params.put("bill_no","01");
@@ -78,13 +80,13 @@ public class JsonDemo01 {
         params.put("this_bn_fee","65");
 
         JSONObject params2 = new JSONObject();
-        params2.put("item","Í¶±£ÈË");
+        params2.put("item","æŠ•ä¿äºº");
         params2.put("exempt_flag","18221811952");
         params2.put("exempt_code","123456");
         params2.put("item_fee","423");
 
         JSONObject params3 = new JSONObject();
-        params3.put("item","Í¶±£ÈË");
+        params3.put("item","æŠ•ä¿äºº");
         params3.put("exempt_flag","18221811952");
         params3.put("exempt_code", "123456");
         params3.put("item_fee", "3421");
@@ -98,17 +100,17 @@ public class JsonDemo01 {
 
         //certList
         JSONObject params4=new JSONObject();
-        params4.put("certno", "·Öµ£ºÅ1");
+        params4.put("certno", "åˆ†æ‹…å·1");
         params4.put("kq_flag","18221811952");
         params4.put("ry_flag", "1234562");
         params4.put("wg_flag", "2015/08/20");
         params4.put("qk_flag", new Date());
 
         JSONObject params5=new JSONObject();
-        params5.put("certno","·Öµ£ºÅ2");
+        params5.put("certno","åˆ†æ‹…å·2");
         params5.put("kq_flag","18221811952");
         params5.put("ry_flag","1234562");
-        params5.put("wg_flag","2015/08/20");
+        params5.put("wg_flag", "2015/08/20");
         params5.put("qk_flag", new Date());
 
         List list2=new ArrayList();
@@ -116,10 +118,15 @@ public class JsonDemo01 {
         list2.add(params5);
         params.put("cert_list", list2);
 
-        params0.put("DATA",params);
+        params0.put("DATA", params);
+
         System.out.println("json====="+params.toString());
-        Map<String,Map<String,Map>> map=JSONObject.parseObject(params0.toString(),Map.class);
-        System.out.println("json--->map==="+map);
+        Map map=JSONObject.parseObject(params0.toString(), Map.class);
+        System.out.println("JSONObject.parseObject--->json--->map==="+map);
+        Map map1=JSON.toJavaObject(params0,Map.class);
+        System.out.println("JSON.toJavaObject------->json---->map===" + map1);
+        Map map2=(Map)map1.get("DATA");
+        System.out.println(map2.get("this_bn_fee"));
 
     }
     @Test
@@ -129,3 +136,7 @@ public class JsonDemo01 {
         System.out.println(ss);
     }
 }
+/*
+* {"this_bn_fee":"65","yy_id":"01","out_date":"2015/09/20","is_in_period":"y","diagnosis":"0gaga1","liab_flag":"sdaf","enter_date":"2015/08/20","zs_name":"å‘ç”Ÿçš„","acci_date":"2015/08/20","cert_list":[{"kq_flag":"18221811952","ry_flag":"1234562","qk_flag":1447033082035,"certno":"åˆ†æ‹…å·1","wg_flag":"2015/08/20"},{"kq_flag":"18221811952","ry_flag":"1234562","qk_flag":1447033082035,"certno":"åˆ†æ‹…å·2","wg_flag":"2015/08/20"}],"total_exempt_fee":"45","total_amt":"20","fee_list":[{"item":"æŠ•ä¿äºº","exempt_code":"123456","item_fee":"423","exempt_flag":"18221811952"},{"item":"æŠ•ä¿äºº","exempt_code":"123456","item_fee":"3421","exempt_flag":"18221811952"}],"bill_no":"01","is_ease_pain":"n","zs_id":"5646723496"}
+*
+* */
