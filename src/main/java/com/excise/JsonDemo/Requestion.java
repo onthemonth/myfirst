@@ -76,14 +76,53 @@ public class Requestion {
 
     //============05============
 
+    //复写可变参数方法也要循规蹈矩
     @Test
     public void test06(){
 
         //向上转型
         Base base=new Sub();
-        base.fun(100,50);
+        //base对象是把子类对象做了向上转型，形参列表是由父类决定。
+        base.fun(100,50);//调用子类的fun方法。
         //不转型
         Sub sub=new Sub();
         //sub.fun(100,50);编译不通过
+    }
+
+    //警惕自增的陷阱
+    @Test
+    public void test07(){
+
+        //i++：表示先赋值后加一     ++i:表示先加一后赋值
+        //解释：i++ 相当于： int temp=count;  count=count+1;  return temp;
+        //++i :  int temp=count+1;  return temp;
+
+        //!!!!!!!!!!!!!!!!!!!!!!!!!!
+        int count=0;
+        for (int i=0;i<10;i++){
+            count=count++;
+        }
+        System.out.println("count="+count);//打印0
+
+        //改进后方可打印=========
+        int count1=0;
+        for (int i=0;i<10;i++){
+            count1++;
+        }
+        System.out.println("count="+count1);//打印10
+
+        //或者
+        int count2=0;
+        for (int i=0;i<10;i++){
+            count2=++count2;
+        }
+        System.out.println("count="+count2);//打印10
+
+        //i++ ; 它所在语句先执行，然后它再执行。
+        //++i ; 它先执行，然后它所在的语句再执行。
+        //下面这个练习。
+        int t=1;
+        ++t;
+        System.out.println(++t);
     }
 }
