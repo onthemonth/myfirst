@@ -5,6 +5,8 @@ import com.excise.JsonDemo.requestion.test.Sub;
 import org.junit.Test;
 
 import java.text.NumberFormat;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by mgq on 2015/11/9.
@@ -124,5 +126,13 @@ public class Requestion {
         int t=1;
         ++t;
         System.out.println(++t);
+        List list=new ArrayList();
+        String [] l={};
+        boolean s =list.add(l);
+        System.out.println(s);
+//        String [] ss=new String[1];
+//        for (int i=0;i<ss.length;i++) {
+//            System.out.println(ss[i]);
+//        }
     }
 }
