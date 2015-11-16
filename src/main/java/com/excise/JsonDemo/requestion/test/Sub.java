@@ -9,4 +9,8 @@ public class Sub extends Base {
     public void fun(int price,int[] disCounts){
         System.out.println("Sub..........fun");
     }
+
+    private int testReflect(){
+        return 2;
+    }
 }

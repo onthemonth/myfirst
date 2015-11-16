@@ -4,6 +4,7 @@ import com.excise.JsonDemo.requestion.test.Base;
 import com.excise.JsonDemo.requestion.test.Sub;
 import org.junit.Test;
 
+import java.lang.reflect.Method;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.List;
@@ -35,7 +36,7 @@ public class Requestion {
         calPrice(1000,90);
 
         //复杂打折
-        calPrice(1000,90,90);
+        calPrice(1000, 90, 90);
     }
     //价格   折扣
     private void calPrice(int price,int disCount){
@@ -127,12 +128,39 @@ public class Requestion {
         ++t;
         System.out.println(++t);
         List list=new ArrayList();
-        String [] l={};
-        boolean s =list.add(l);
-        System.out.println(s);
+        //String [] l={"123"};
+        boolean s =list.add(123);
+        list.add(123);
+        //list.remove(0);
+        System.out.println(list);
 //        String [] ss=new String[1];
 //        for (int i=0;i<ss.length;i++) {
 //            System.out.println(ss[i]);
 //        }
     }
+
+    @Test
+    public void test08()throws Exception{
+        Integer integer=new Integer(2);
+
+        Sub sub=new Sub();
+        int has=sub.hashCode();
+        System.out.println(Integer.toHexString(has));
+        System.out.println(sub.toString());
+        Class c=Class.forName("com.excise.JsonDemo.requestion.test.Sub");
+        Method [] memthods= c.getDeclaredMethods();
+        Sub ss=(Sub)c.newInstance();
+        int [] s={1,5,5};
+        ss.fun(12,s);
+        for (int i=0;i<memthods.length;i++)
+        System.out.println(memthods[i]);
+        String ss1="sdfasdfasdfa";
+        String ss2="sdfasdfasdfa";
+        System.out.println(ss1.hashCode());
+        System.out.println(ss2.hashCode());
+    }
+
+//    public final native void ddd(long timeout);
+
+
 }
