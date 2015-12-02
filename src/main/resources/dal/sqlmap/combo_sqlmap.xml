@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Generate by autoSQLMap Powered by duxing@Taobao -->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="ComboDAO">
+
+    <typeAlias alias="ComboDO" type="test.dal.dataobject.ComboDO"/>
+
+    <resultMap id="resultComboDOMap" class="test.dal.dataobject.ComboDO">
+        <result property="id" column="ID"/>
+        <result property="cCreateBy" column="C_CREATE_BY"/>
+        <result property="cCreateDate" column="C_CREATE_DATE"/>
+        <result property="cUpdateBy" column="C_UPDATE_BY"/>
+        <result property="cUpdateDate" column="C_UPDATE_DATE"/>
+        <result property="cDeleteFlag" column="C_DELETE_FLAG"/>
+        <result property="coverage" column="COVERAGE"/>
+        <result property="regularPremium" column="REGULAR_PREMIUM"/>
+        <result property="clauseName" column="CLAUSE_NAME"/>
+        <result property="claimLimit" column="CLAIM_LIMIT"/>
+        <result property="claimLimitExplain" column="CLAIM_LIMIT_EXPLAIN"/>
+        <result property="categoryInfoId" column="CATEGORY_INFO_ID"/>
+        <result property="planInfoId" column="PLAN_INFO_ID"/>
+    </resultMap>
+
+    <sql id="allCols">
+                 `ID`
+                ,`C_CREATE_BY`
+                ,`C_CREATE_DATE`
+                ,`C_UPDATE_BY`
+                ,`C_UPDATE_DATE`
+                ,`C_DELETE_FLAG`
+                ,`COVERAGE`
+                ,`REGULAR_PREMIUM`
+                ,`CLAUSE_NAME`
+                ,`CLAIM_LIMIT`
+                ,`CLAIM_LIMIT_EXPLAIN`
+                ,`CATEGORY_INFO_ID`
+                ,`PLAN_INFO_ID`
+    </sql>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：插入单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <insert id="insert" parameterClass="ComboDO">
+        <![CDATA[
+	    INSERT INTO `combo`(
+	    ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        )VALUES(
+                 #id#
+                ,#cCreateBy#
+                ,#cCreateDate#
+                ,#cUpdateBy#
+                ,#cUpdateDate#
+                ,#cDeleteFlag#
+                ,#coverage#
+                ,#regularPremium#
+                ,#clauseName#
+                ,#claimLimit#
+                ,#claimLimitExplain#
+                ,#categoryInfoId#
+                ,#planInfoId#
+        );
+        ]]>
+
+    </insert>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：更新单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="update">
+        <![CDATA[
+        UPDATE `combo` SET `ID` = #id#;
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" , ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" , ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" , ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" , ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" , ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="coverage" prepend=" , ">
+                `COVERAGE` = #coverage#
+            </isNotNull>
+            <isNotNull property="regularPremium" prepend=" , ">
+                `REGULAR_PREMIUM` = #regularPremium#
+            </isNotNull>
+            <isNotNull property="clauseName" prepend=" , ">
+                `CLAUSE_NAME` = #clauseName#
+            </isNotNull>
+            <isNotNull property="claimLimit" prepend=" , ">
+                `CLAIM_LIMIT` = #claimLimit#
+            </isNotNull>
+            <isNotNull property="claimLimitExplain" prepend=" , ">
+                `CLAIM_LIMIT_EXPLAIN` = #claimLimitExplain#
+            </isNotNull>
+            <isNotNull property="categoryInfoId" prepend=" , ">
+                `CATEGORY_INFO_ID` = #categoryInfoId#
+            </isNotNull>
+            <isNotNull property="planInfoId" prepend=" , ">
+                `PLAN_INFO_ID` = #planInfoId#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        WHERE `ID` = #id#;
+    	]]>
+    </update>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+        -->
+    <select id="select" resultMap="resultComboDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `combo` WHERE `ID` = #id#;
+        ]]>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询多条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryList" resultMap="resultComboDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `combo` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="coverage" prepend=" AND ">
+                `COVERAGE` = #coverage#
+            </isNotNull>
+            <isNotNull property="regularPremium" prepend=" AND ">
+                `REGULAR_PREMIUM` = #regularPremium#
+            </isNotNull>
+            <isNotNull property="clauseName" prepend=" AND ">
+                `CLAUSE_NAME` = #clauseName#
+            </isNotNull>
+            <isNotNull property="claimLimit" prepend=" AND ">
+                `CLAIM_LIMIT` = #claimLimit#
+            </isNotNull>
+            <isNotNull property="claimLimitExplain" prepend=" AND ">
+                `CLAIM_LIMIT_EXPLAIN` = #claimLimitExplain#
+            </isNotNull>
+            <isNotNull property="categoryInfoId" prepend=" AND ">
+                `CATEGORY_INFO_ID` = #categoryInfoId#
+            </isNotNull>
+            <isNotNull property="planInfoId" prepend=" AND ">
+                `PLAN_INFO_ID` = #planInfoId#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        ORDER BY `ID` DESC
+        LIMIT #startRow#,#limit#;
+        ]]>
+
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询条数
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryCount" resultClass="java.lang.Integer">
+        <![CDATA[
+        SELECT
+        COUNT(*)
+        FROM `combo` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="id" prepend=" AND ">
+                `ID` = #id#
+            </isNotNull>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="coverage" prepend=" AND ">
+                `COVERAGE` = #coverage#
+            </isNotNull>
+            <isNotNull property="regularPremium" prepend=" AND ">
+                `REGULAR_PREMIUM` = #regularPremium#
+            </isNotNull>
+            <isNotNull property="clauseName" prepend=" AND ">
+                `CLAUSE_NAME` = #clauseName#
+            </isNotNull>
+            <isNotNull property="claimLimit" prepend=" AND ">
+                `CLAIM_LIMIT` = #claimLimit#
+            </isNotNull>
+            <isNotNull property="claimLimitExplain" prepend=" AND ">
+                `CLAIM_LIMIT_EXPLAIN` = #claimLimitExplain#
+            </isNotNull>
+            <isNotNull property="categoryInfoId" prepend=" AND ">
+                `CATEGORY_INFO_ID` = #categoryInfoId#
+            </isNotNull>
+            <isNotNull property="planInfoId" prepend=" AND ">
+                `PLAN_INFO_ID` = #planInfoId#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：物理删除单条数据
+           前台或后台：后台
+           频率：每天100以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="delete">
+        UPDATE `combo` SET `{DELETE_KEY}` = '1' WHERE `ID` = #id#;
+    </update>
+
+</sqlMap>

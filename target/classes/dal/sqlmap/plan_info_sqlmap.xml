@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Generate by autoSQLMap Powered by duxing@Taobao -->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="PlanInfoDAO">
+
+    <typeAlias alias="PlanInfoDO" type="test.dal.dataobject.PlanInfoDO"/>
+
+    <resultMap id="resultPlanInfoDOMap" class="test.dal.dataobject.PlanInfoDO">
+        <result property="id" column="ID"/>
+        <result property="cCreateBy" column="C_CREATE_BY"/>
+        <result property="cCreateDate" column="C_CREATE_DATE"/>
+        <result property="cUpdateBy" column="C_UPDATE_BY"/>
+        <result property="cUpdateDate" column="C_UPDATE_DATE"/>
+        <result property="cDeleteFlag" column="C_DELETE_FLAG"/>
+        <result property="planCode" column="PLAN_CODE"/>
+        <result property="planName" column="PLAN_NAME"/>
+        <result property="planFullname" column="PLAN_FULLNAME"/>
+        <result property="coverage" column="COVERAGE"/>
+        <result property="regularPremium" column="REGULAR_PREMIUM"/>
+        <result property="productInfoId" column="PRODUCT_INFO_ID"/>
+        <result property="packageInfoId" column="PACKAGE_INFO_ID"/>
+    </resultMap>
+
+    <sql id="allCols">
+                 `ID`
+                ,`C_CREATE_BY`
+                ,`C_CREATE_DATE`
+                ,`C_UPDATE_BY`
+                ,`C_UPDATE_DATE`
+                ,`C_DELETE_FLAG`
+                ,`PLAN_CODE`
+                ,`PLAN_NAME`
+                ,`PLAN_FULLNAME`
+                ,`COVERAGE`
+                ,`REGULAR_PREMIUM`
+                ,`PRODUCT_INFO_ID`
+                ,`PACKAGE_INFO_ID`
+    </sql>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：插入单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <insert id="insert" parameterClass="PlanInfoDO">
+        <![CDATA[
+	    INSERT INTO `plan_info`(
+	    ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        )VALUES(
+                 #id#
+                ,#cCreateBy#
+                ,#cCreateDate#
+                ,#cUpdateBy#
+                ,#cUpdateDate#
+                ,#cDeleteFlag#
+                ,#planCode#
+                ,#planName#
+                ,#planFullname#
+                ,#coverage#
+                ,#regularPremium#
+                ,#productInfoId#
+                ,#packageInfoId#
+        );
+        ]]>
+
+    </insert>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：更新单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="update">
+        <![CDATA[
+        UPDATE `plan_info` SET `ID` = #id#;
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" , ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" , ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" , ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" , ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" , ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="planCode" prepend=" , ">
+                `PLAN_CODE` = #planCode#
+            </isNotNull>
+            <isNotNull property="planName" prepend=" , ">
+                `PLAN_NAME` = #planName#
+            </isNotNull>
+            <isNotNull property="planFullname" prepend=" , ">
+                `PLAN_FULLNAME` = #planFullname#
+            </isNotNull>
+            <isNotNull property="coverage" prepend=" , ">
+                `COVERAGE` = #coverage#
+            </isNotNull>
+            <isNotNull property="regularPremium" prepend=" , ">
+                `REGULAR_PREMIUM` = #regularPremium#
+            </isNotNull>
+            <isNotNull property="productInfoId" prepend=" , ">
+                `PRODUCT_INFO_ID` = #productInfoId#
+            </isNotNull>
+            <isNotNull property="packageInfoId" prepend=" , ">
+                `PACKAGE_INFO_ID` = #packageInfoId#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        WHERE `ID` = #id#;
+    	]]>
+    </update>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+        -->
+    <select id="select" resultMap="resultPlanInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `plan_info` WHERE `ID` = #id#;
+        ]]>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询多条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryList" resultMap="resultPlanInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `plan_info` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="planCode" prepend=" AND ">
+                `PLAN_CODE` = #planCode#
+            </isNotNull>
+            <isNotNull property="planName" prepend=" AND ">
+                `PLAN_NAME` = #planName#
+            </isNotNull>
+            <isNotNull property="planFullname" prepend=" AND ">
+                `PLAN_FULLNAME` = #planFullname#
+            </isNotNull>
+            <isNotNull property="coverage" prepend=" AND ">
+                `COVERAGE` = #coverage#
+            </isNotNull>
+            <isNotNull property="regularPremium" prepend=" AND ">
+                `REGULAR_PREMIUM` = #regularPremium#
+            </isNotNull>
+            <isNotNull property="productInfoId" prepend=" AND ">
+                `PRODUCT_INFO_ID` = #productInfoId#
+            </isNotNull>
+            <isNotNull property="packageInfoId" prepend=" AND ">
+                `PACKAGE_INFO_ID` = #packageInfoId#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        ORDER BY `ID` DESC
+        LIMIT #startRow#,#limit#;
+        ]]>
+
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询条数
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryCount" resultClass="java.lang.Integer">
+        <![CDATA[
+        SELECT
+        COUNT(*)
+        FROM `plan_info` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="id" prepend=" AND ">
+                `ID` = #id#
+            </isNotNull>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="planCode" prepend=" AND ">
+                `PLAN_CODE` = #planCode#
+            </isNotNull>
+            <isNotNull property="planName" prepend=" AND ">
+                `PLAN_NAME` = #planName#
+            </isNotNull>
+            <isNotNull property="planFullname" prepend=" AND ">
+                `PLAN_FULLNAME` = #planFullname#
+            </isNotNull>
+            <isNotNull property="coverage" prepend=" AND ">
+                `COVERAGE` = #coverage#
+            </isNotNull>
+            <isNotNull property="regularPremium" prepend=" AND ">
+                `REGULAR_PREMIUM` = #regularPremium#
+            </isNotNull>
+            <isNotNull property="productInfoId" prepend=" AND ">
+                `PRODUCT_INFO_ID` = #productInfoId#
+            </isNotNull>
+            <isNotNull property="packageInfoId" prepend=" AND ">
+                `PACKAGE_INFO_ID` = #packageInfoId#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：物理删除单条数据
+           前台或后台：后台
+           频率：每天100以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="delete">
+        UPDATE `plan_info` SET `{DELETE_KEY}` = '1' WHERE `ID` = #id#;
+    </update>
+
+</sqlMap>

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Generate by autoSQLMap Powered by duxing@Taobao -->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="IInsBenefitBranchZayzxDAO">
+
+    <typeAlias alias="IInsBenefitBranchZayzxDO" type="test.dal.dataobject.IInsBenefitBranchZayzxDO"/>
+
+    <resultMap id="resultIInsBenefitBranchZayzxDOMap" class="test.dal.dataobject.IInsBenefitBranchZayzxDO">
+        <result property="id" column="ID"/>
+        <result property="cCreateBy" column="C_CREATE_BY"/>
+        <result property="cCreateDate" column="C_CREATE_DATE"/>
+        <result property="cUpdateBy" column="C_UPDATE_BY"/>
+        <result property="cUpdateDate" column="C_UPDATE_DATE"/>
+        <result property="cDeleteFlag" column="C_DELETE_FLAG"/>
+        <result property="iInsuranceSlipBenefitId" column="I_INSURANCE_SLIP_BENEFIT_ID"/>
+    </resultMap>
+
+    <sql id="allCols">
+                 `ID`
+                ,`C_CREATE_BY`
+                ,`C_CREATE_DATE`
+                ,`C_UPDATE_BY`
+                ,`C_UPDATE_DATE`
+                ,`C_DELETE_FLAG`
+                ,`I_INSURANCE_SLIP_BENEFIT_ID`
+    </sql>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：插入单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <insert id="insert" parameterClass="IInsBenefitBranchZayzxDO">
+        <![CDATA[
+	    INSERT INTO `i_ins_benefit_branch_zayzx`(
+	    ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        )VALUES(
+                 #id#
+                ,#cCreateBy#
+                ,#cCreateDate#
+                ,#cUpdateBy#
+                ,#cUpdateDate#
+                ,#cDeleteFlag#
+                ,#iInsuranceSlipBenefitId#
+        );
+        ]]>
+        <selectKey resultClass="String" keyProperty="id" >
+            SELECT @@IDENTITY AS ID
+        </selectKey>
+    </insert>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：更新单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="update">
+        <![CDATA[
+        UPDATE `i_ins_benefit_branch_zayzx` SET `ID` = #id#;
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" , ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" , ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" , ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" , ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" , ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="iInsuranceSlipBenefitId" prepend=" , ">
+                `I_INSURANCE_SLIP_BENEFIT_ID` = #iInsuranceSlipBenefitId#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        WHERE `ID` = #id#;
+    	]]>
+    </update>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+        -->
+    <select id="select" resultMap="resultIInsBenefitBranchZayzxDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `i_ins_benefit_branch_zayzx` WHERE `ID` = #id#;
+        ]]>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询多条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryList" resultMap="resultIInsBenefitBranchZayzxDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `i_ins_benefit_branch_zayzx` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="iInsuranceSlipBenefitId" prepend=" AND ">
+                `I_INSURANCE_SLIP_BENEFIT_ID` = #iInsuranceSlipBenefitId#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        ORDER BY `ID` DESC
+        LIMIT #startRow#,#limit#;
+        ]]>
+
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询条数
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryCount" resultClass="java.lang.Integer">
+        <![CDATA[
+        SELECT
+        COUNT(*)
+        FROM `i_ins_benefit_branch_zayzx` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="id" prepend=" AND ">
+                `ID` = #id#
+            </isNotNull>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="iInsuranceSlipBenefitId" prepend=" AND ">
+                `I_INSURANCE_SLIP_BENEFIT_ID` = #iInsuranceSlipBenefitId#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：物理删除单条数据
+           前台或后台：后台
+           频率：每天100以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <delete id="delete">
+        DELETE FROM `i_ins_benefit_branch_zayzx`  WHERE `ID` = #id#;
+    </delete>
+
+</sqlMap>

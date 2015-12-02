@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Generate by autoSQLMap Powered by duxing@Taobao -->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="ProductInfoDAO">
+
+    <typeAlias alias="ProductInfoDO" type="test.dal.dataobject.ProductInfoDO"/>
+
+    <resultMap id="resultProductInfoDOMap" class="test.dal.dataobject.ProductInfoDO">
+        <result property="id" column="ID"/>
+        <result property="createBy" column="C_CREATE_BY"/>
+        <result property="createDate" column="C_CREATE_DATE"/>
+        <result property="updateBy" column="C_UPDATE_BY"/>
+        <result property="updateDate" column="C_UPDATE_DATE"/>
+        <result property="deleteFlag" column="C_DELETE_FLAG"/>
+        <result property="insuranceSource" column="INSURANCE_SOURCE"/>
+        <result property="productCode" column="PRODUCT_CODE"/>
+        <result property="productName" column="PRODUCT_NAME"/>
+        <result property="productFullname" column="PRODUCT_FULLNAME"/>
+        <result property="status" column="STATUS"/>
+    </resultMap>
+
+    <sql id="allCols">
+                 `ID`
+                ,`C_CREATE_BY`
+                ,`C_CREATE_DATE`
+                ,`C_UPDATE_BY`
+                ,`C_UPDATE_DATE`
+                ,`C_DELETE_FLAG`
+                ,`INSURANCE_SOURCE`
+                ,`PRODUCT_CODE`
+                ,`PRODUCT_NAME`
+                ,`PRODUCT_FULLNAME`
+                ,`STATUS`
+    </sql>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：插入单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <insert id="insert" parameterClass="ProductInfoDO">
+        <![CDATA[
+	    INSERT INTO `product_info`(
+	    ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        )VALUES(
+                 #id#
+                ,#cCreateBy#
+                ,#cCreateDate#
+                ,#cUpdateBy#
+                ,#cUpdateDate#
+                ,#cDeleteFlag#
+                ,#insuranceSource#
+                ,#productCode#
+                ,#productName#
+                ,#productFullname#
+                ,#status#
+        );
+        ]]>
+        <selectKey resultClass="String" keyProperty="id" >
+            SELECT @@IDENTITY AS ID
+        </selectKey>
+    </insert>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：更新单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="update">
+        <![CDATA[
+        UPDATE `product_info` SET `ID` = #id#;
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" , ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" , ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" , ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" , ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" , ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="insuranceSource" prepend=" , ">
+                `INSURANCE_SOURCE` = #insuranceSource#
+            </isNotNull>
+            <isNotNull property="productCode" prepend=" , ">
+                `PRODUCT_CODE` = #productCode#
+            </isNotNull>
+            <isNotNull property="productName" prepend=" , ">
+                `PRODUCT_NAME` = #productName#
+            </isNotNull>
+            <isNotNull property="productFullname" prepend=" , ">
+                `PRODUCT_FULLNAME` = #productFullname#
+            </isNotNull>
+            <isNotNull property="status" prepend=" , ">
+                `STATUS` = #status#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        WHERE `ID` = #id#;
+    	]]>
+    </update>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+        -->
+    <select id="select" resultMap="resultProductInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `product_info` WHERE `ID` = #id#;
+        ]]>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询多条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryList" resultMap="resultProductInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `product_info` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="insuranceSource" prepend=" AND ">
+                `INSURANCE_SOURCE` = #insuranceSource#
+            </isNotNull>
+            <isNotNull property="productCode" prepend=" AND ">
+                `PRODUCT_CODE` = #productCode#
+            </isNotNull>
+            <isNotNull property="productName" prepend=" AND ">
+                `PRODUCT_NAME` = #productName#
+            </isNotNull>
+            <isNotNull property="productFullname" prepend=" AND ">
+                `PRODUCT_FULLNAME` = #productFullname#
+            </isNotNull>
+            <isNotNull property="status" prepend=" AND ">
+                `STATUS` = #status#
+            </isNotNull>
+        </dynamic>
+
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询条数
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryCount" resultClass="java.lang.Integer">
+        <![CDATA[
+        SELECT
+        COUNT(*)
+        FROM `product_info` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="id" prepend=" AND ">
+                `ID` = #id#
+            </isNotNull>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="insuranceSource" prepend=" AND ">
+                `INSURANCE_SOURCE` = #insuranceSource#
+            </isNotNull>
+            <isNotNull property="productCode" prepend=" AND ">
+                `PRODUCT_CODE` = #productCode#
+            </isNotNull>
+            <isNotNull property="productName" prepend=" AND ">
+                `PRODUCT_NAME` = #productName#
+            </isNotNull>
+            <isNotNull property="productFullname" prepend=" AND ">
+                `PRODUCT_FULLNAME` = #productFullname#
+            </isNotNull>
+            <isNotNull property="status" prepend=" AND ">
+                `STATUS` = #status#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：物理删除单条数据
+           前台或后台：后台
+           频率：每天100以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <delete id="delete">
+        DELETE FROM `product_info`  WHERE `ID` = #id#;
+    </delete>
+
+</sqlMap>

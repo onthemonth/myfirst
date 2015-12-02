@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Generate by autoSQLMap Powered by duxing@Taobao -->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="InstitutionCheckDAO">
+
+    <typeAlias alias="InstitutionCheckDO" type="test.dal.dataobject.InstitutionCheckDO"/>
+
+    <resultMap id="resultInstitutionCheckDOMap" class="test.dal.dataobject.InstitutionCheckDO">
+        <result property="id" column="ID"/>
+        <result property="cCreateBy" column="C_CREATE_BY"/>
+        <result property="cCreateDate" column="C_CREATE_DATE"/>
+        <result property="cUpdateBy" column="C_UPDATE_BY"/>
+        <result property="cUpdateDate" column="C_UPDATE_DATE"/>
+        <result property="cDeleteFlag" column="C_DELETE_FLAG"/>
+        <result property="cInstitutionNo" column="C_INSTITUTION_NO"/>
+        <result property="cHead" column="C_HEAD"/>
+        <result property="cHeadPhone" column="C_HEAD_PHONE"/>
+        <result property="cLegal" column="C_LEGAL"/>
+        <result property="cLegalPhone" column="C_LEGAL_PHONE"/>
+        <result property="cExecutive" column="C_EXECUTIVE"/>
+        <result property="cExecutivePhone" column="C_EXECUTIVE_PHONE"/>
+        <result property="cEmail" column="C_EMAIL"/>
+        <result property="cWebOfficer" column="C_WEB_OFFICER"/>
+        <result property="cWebOfficerPhone" column="C_WEB_OFFICER_PHONE"/>
+        <result property="cUrl" column="C_URL"/>
+        <result property="cLinkTel" column="C_LINK_TEL"/>
+        <result property="cCompany" column="C_COMPANY"/>
+        <result property="cRegisteredFund" column="C_REGISTERED_FUND"/>
+        <result property="cFormed" column="C_FORMED"/>
+        <result property="cProvinceId" column="C_PROVINCE_ID"/>
+        <result property="cCityId" column="C_CITY_ID"/>
+        <result property="cDistrictId" column="C_DISTRICT_ID"/>
+        <result property="cProvinceCity" column="C_PROVINCE_CITY"/>
+        <result property="cAddress" column="C_ADDRESS"/>
+        <result property="cCoord" column="C_COORD"/>
+        <result property="cProperty" column="C_PROPERTY"/>
+        <result property="cClassify" column="C_CLASSIFY"/>
+        <result property="cLogo" column="C_LOGO"/>
+        <result property="cBus" column="C_BUS"/>
+        <result property="cWechat" column="C_WECHAT"/>
+        <result property="cQq" column="C_QQ"/>
+        <result property="cMetro" column="C_METRO"/>
+        <result property="cIndependent" column="C_INDEPENDENT"/>
+        <result property="cJingymj" column="C_JINGYMJ"/>
+        <result property="cWaitingArea" column="C_WAITING_AREA"/>
+        <result property="cChildrenArea" column="C_CHILDREN_AREA"/>
+        <result property="cDrNum" column="C_DR_NUM"/>
+        <result property="cDhNum" column="C_DH_NUM"/>
+        <result property="cDaNum" column="C_DA_NUM"/>
+        <result property="cTcNum" column="C_TC_NUM"/>
+        <result property="cCsNum" column="C_CS_NUM"/>
+        <result property="cOrNum" column="C_OR_NUM"/>
+        <result property="cIntroduce" column="C_INTRODUCE"/>
+        <result property="cStatus" column="C_STATUS"/>
+        <result property="cLat" column="C_LAT"/>
+        <result property="cLng" column="C_LNG"/>
+        <result property="cIsChain" column="C_IS_CHAIN"/>
+        <result property="cChainBrand" column="C_CHAIN_BRAND"/>
+        <result property="cChainNum" column="C_CHAIN_NUM"/>
+        <result property="cBusinessHour" column="C_BUSINESS_HOUR"/>
+        <result property="cAgencyCertType" column="C_AGENCY_CERT_TYPE"/>
+        <result property="cMediccalInstType" column="C_MEDICCAL_INST_TYPE"/>
+        <result property="cLossesNearlyThreeYears" column="C_LOSSES_NEARLY_THREE_YEARS"/>
+    </resultMap>
+
+    <sql id="allCols">
+                 `ID`
+                ,`C_CREATE_BY`
+                ,`C_CREATE_DATE`
+                ,`C_UPDATE_BY`
+                ,`C_UPDATE_DATE`
+                ,`C_DELETE_FLAG`
+                ,`C_INSTITUTION_NO`
+                ,`C_HEAD`
+                ,`C_HEAD_PHONE`
+                ,`C_LEGAL`
+                ,`C_LEGAL_PHONE`
+                ,`C_EXECUTIVE`
+                ,`C_EXECUTIVE_PHONE`
+                ,`C_EMAIL`
+                ,`C_WEB_OFFICER`
+                ,`C_WEB_OFFICER_PHONE`
+                ,`C_URL`
+                ,`C_LINK_TEL`
+                ,`C_COMPANY`
+                ,`C_REGISTERED_FUND`
+                ,`C_FORMED`
+                ,`C_PROVINCE_ID`
+                ,`C_CITY_ID`
+                ,`C_DISTRICT_ID`
+                ,`C_PROVINCE_CITY`
+                ,`C_ADDRESS`
+                ,`C_COORD`
+                ,`C_PROPERTY`
+                ,`C_CLASSIFY`
+                ,`C_LOGO`
+                ,`C_BUS`
+                ,`C_WECHAT`
+                ,`C_QQ`
+                ,`C_METRO`
+                ,`C_INDEPENDENT`
+                ,`C_JINGYMJ`
+                ,`C_WAITING_AREA`
+                ,`C_CHILDREN_AREA`
+                ,`C_DR_NUM`
+                ,`C_DH_NUM`
+                ,`C_DA_NUM`
+                ,`C_TC_NUM`
+                ,`C_CS_NUM`
+                ,`C_OR_NUM`
+                ,`C_INTRODUCE`
+                ,`C_STATUS`
+                ,`C_LAT`
+                ,`C_LNG`
+                ,`C_IS_CHAIN`
+                ,`C_CHAIN_BRAND`
+                ,`C_CHAIN_NUM`
+                ,`C_BUSINESS_HOUR`
+                ,`C_AGENCY_CERT_TYPE`
+                ,`C_MEDICCAL_INST_TYPE`
+                ,`C_LOSSES_NEARLY_THREE_YEARS`
+    </sql>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：插入单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <insert id="insert" parameterClass="InstitutionCheckDO">
+        <![CDATA[
+	    INSERT INTO `institution_check`(
+	    ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        )VALUES(
+                 #id#
+                ,#cCreateBy#
+                ,#cCreateDate#
+                ,#cUpdateBy#
+                ,#cUpdateDate#
+                ,#cDeleteFlag#
+                ,#cInstitutionNo#
+                ,#cHead#
+                ,#cHeadPhone#
+                ,#cLegal#
+                ,#cLegalPhone#
+                ,#cExecutive#
+                ,#cExecutivePhone#
+                ,#cEmail#
+                ,#cWebOfficer#
+                ,#cWebOfficerPhone#
+                ,#cUrl#
+                ,#cLinkTel#
+                ,#cCompany#
+                ,#cRegisteredFund#
+                ,#cFormed#
+                ,#cProvinceId#
+                ,#cCityId#
+                ,#cDistrictId#
+                ,#cProvinceCity#
+                ,#cAddress#
+                ,#cCoord#
+                ,#cProperty#
+                ,#cClassify#
+                ,#cLogo#
+                ,#cBus#
+                ,#cWechat#
+                ,#cQq#
+                ,#cMetro#
+                ,#cIndependent#
+                ,#cJingymj#
+                ,#cWaitingArea#
+                ,#cChildrenArea#
+                ,#cDrNum#
+                ,#cDhNum#
+                ,#cDaNum#
+                ,#cTcNum#
+                ,#cCsNum#
+                ,#cOrNum#
+                ,#cIntroduce#
+                ,#cStatus#
+                ,#cLat#
+                ,#cLng#
+                ,#cIsChain#
+                ,#cChainBrand#
+                ,#cChainNum#
+                ,#cBusinessHour#
+                ,#cAgencyCertType#
+                ,#cMediccalInstType#
+                ,#cLossesNearlyThreeYears#
+        );
+        ]]>
+        <selectKey resultClass="String" keyProperty="id" >
+            SELECT @@IDENTITY AS ID
+        </selectKey>
+    </insert>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：更新单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="update">
+        <![CDATA[
+        UPDATE `institution_check` SET `ID` = #id#;
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" , ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" , ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" , ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" , ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" , ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="cInstitutionNo" prepend=" , ">
+                `C_INSTITUTION_NO` = #cInstitutionNo#
+            </isNotNull>
+            <isNotNull property="cHead" prepend=" , ">
+                `C_HEAD` = #cHead#
+            </isNotNull>
+            <isNotNull property="cHeadPhone" prepend=" , ">
+                `C_HEAD_PHONE` = #cHeadPhone#
+            </isNotNull>
+            <isNotNull property="cLegal" prepend=" , ">
+                `C_LEGAL` = #cLegal#
+            </isNotNull>
+            <isNotNull property="cLegalPhone" prepend=" , ">
+                `C_LEGAL_PHONE` = #cLegalPhone#
+            </isNotNull>
+            <isNotNull property="cExecutive" prepend=" , ">
+                `C_EXECUTIVE` = #cExecutive#
+            </isNotNull>
+            <isNotNull property="cExecutivePhone" prepend=" , ">
+                `C_EXECUTIVE_PHONE` = #cExecutivePhone#
+            </isNotNull>
+            <isNotNull property="cEmail" prepend=" , ">
+                `C_EMAIL` = #cEmail#
+            </isNotNull>
+            <isNotNull property="cWebOfficer" prepend=" , ">
+                `C_WEB_OFFICER` = #cWebOfficer#
+            </isNotNull>
+            <isNotNull property="cWebOfficerPhone" prepend=" , ">
+                `C_WEB_OFFICER_PHONE` = #cWebOfficerPhone#
+            </isNotNull>
+            <isNotNull property="cUrl" prepend=" , ">
+                `C_URL` = #cUrl#
+            </isNotNull>
+            <isNotNull property="cLinkTel" prepend=" , ">
+                `C_LINK_TEL` = #cLinkTel#
+            </isNotNull>
+            <isNotNull property="cCompany" prepend=" , ">
+                `C_COMPANY` = #cCompany#
+            </isNotNull>
+            <isNotNull property="cRegisteredFund" prepend=" , ">
+                `C_REGISTERED_FUND` = #cRegisteredFund#
+            </isNotNull>
+            <isNotNull property="cFormed" prepend=" , ">
+                `C_FORMED` = #cFormed#
+            </isNotNull>
+            <isNotNull property="cProvinceId" prepend=" , ">
+                `C_PROVINCE_ID` = #cProvinceId#
+            </isNotNull>
+            <isNotNull property="cCityId" prepend=" , ">
+                `C_CITY_ID` = #cCityId#
+            </isNotNull>
+            <isNotNull property="cDistrictId" prepend=" , ">
+                `C_DISTRICT_ID` = #cDistrictId#
+            </isNotNull>
+            <isNotNull property="cProvinceCity" prepend=" , ">
+                `C_PROVINCE_CITY` = #cProvinceCity#
+            </isNotNull>
+            <isNotNull property="cAddress" prepend=" , ">
+                `C_ADDRESS` = #cAddress#
+            </isNotNull>
+            <isNotNull property="cCoord" prepend=" , ">
+                `C_COORD` = #cCoord#
+            </isNotNull>
+            <isNotNull property="cProperty" prepend=" , ">
+                `C_PROPERTY` = #cProperty#
+            </isNotNull>
+            <isNotNull property="cClassify" prepend=" , ">
+                `C_CLASSIFY` = #cClassify#
+            </isNotNull>
+            <isNotNull property="cLogo" prepend=" , ">
+                `C_LOGO` = #cLogo#
+            </isNotNull>
+            <isNotNull property="cBus" prepend=" , ">
+                `C_BUS` = #cBus#
+            </isNotNull>
+            <isNotNull property="cWechat" prepend=" , ">
+                `C_WECHAT` = #cWechat#
+            </isNotNull>
+            <isNotNull property="cQq" prepend=" , ">
+                `C_QQ` = #cQq#
+            </isNotNull>
+            <isNotNull property="cMetro" prepend=" , ">
+                `C_METRO` = #cMetro#
+            </isNotNull>
+            <isNotNull property="cIndependent" prepend=" , ">
+                `C_INDEPENDENT` = #cIndependent#
+            </isNotNull>
+            <isNotNull property="cJingymj" prepend=" , ">
+                `C_JINGYMJ` = #cJingymj#
+            </isNotNull>
+            <isNotNull property="cWaitingArea" prepend=" , ">
+                `C_WAITING_AREA` = #cWaitingArea#
+            </isNotNull>
+            <isNotNull property="cChildrenArea" prepend=" , ">
+                `C_CHILDREN_AREA` = #cChildrenArea#
+            </isNotNull>
+            <isNotNull property="cDrNum" prepend=" , ">
+                `C_DR_NUM` = #cDrNum#
+            </isNotNull>
+            <isNotNull property="cDhNum" prepend=" , ">
+                `C_DH_NUM` = #cDhNum#
+            </isNotNull>
+            <isNotNull property="cDaNum" prepend=" , ">
+                `C_DA_NUM` = #cDaNum#
+            </isNotNull>
+            <isNotNull property="cTcNum" prepend=" , ">
+                `C_TC_NUM` = #cTcNum#
+            </isNotNull>
+            <isNotNull property="cCsNum" prepend=" , ">
+                `C_CS_NUM` = #cCsNum#
+            </isNotNull>
+            <isNotNull property="cOrNum" prepend=" , ">
+                `C_OR_NUM` = #cOrNum#
+            </isNotNull>
+            <isNotNull property="cIntroduce" prepend=" , ">
+                `C_INTRODUCE` = #cIntroduce#
+            </isNotNull>
+            <isNotNull property="cStatus" prepend=" , ">
+                `C_STATUS` = #cStatus#
+            </isNotNull>
+            <isNotNull property="cLat" prepend=" , ">
+                `C_LAT` = #cLat#
+            </isNotNull>
+            <isNotNull property="cLng" prepend=" , ">
+                `C_LNG` = #cLng#
+            </isNotNull>
+            <isNotNull property="cIsChain" prepend=" , ">
+                `C_IS_CHAIN` = #cIsChain#
+            </isNotNull>
+            <isNotNull property="cChainBrand" prepend=" , ">
+                `C_CHAIN_BRAND` = #cChainBrand#
+            </isNotNull>
+            <isNotNull property="cChainNum" prepend=" , ">
+                `C_CHAIN_NUM` = #cChainNum#
+            </isNotNull>
+            <isNotNull property="cBusinessHour" prepend=" , ">
+                `C_BUSINESS_HOUR` = #cBusinessHour#
+            </isNotNull>
+            <isNotNull property="cAgencyCertType" prepend=" , ">
+                `C_AGENCY_CERT_TYPE` = #cAgencyCertType#
+            </isNotNull>
+            <isNotNull property="cMediccalInstType" prepend=" , ">
+                `C_MEDICCAL_INST_TYPE` = #cMediccalInstType#
+            </isNotNull>
+            <isNotNull property="cLossesNearlyThreeYears" prepend=" , ">
+                `C_LOSSES_NEARLY_THREE_YEARS` = #cLossesNearlyThreeYears#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        WHERE `ID` = #id#;
+    	]]>
+    </update>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+        -->
+    <select id="select" resultMap="resultInstitutionCheckDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `institution_check` WHERE `ID` = #id#;
+        ]]>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询多条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryList" resultMap="resultInstitutionCheckDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `institution_check` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="cInstitutionNo" prepend=" AND ">
+                `C_INSTITUTION_NO` = #cInstitutionNo#
+            </isNotNull>
+            <isNotNull property="cHead" prepend=" AND ">
+                `C_HEAD` = #cHead#
+            </isNotNull>
+            <isNotNull property="cHeadPhone" prepend=" AND ">
+                `C_HEAD_PHONE` = #cHeadPhone#
+            </isNotNull>
+            <isNotNull property="cLegal" prepend=" AND ">
+                `C_LEGAL` = #cLegal#
+            </isNotNull>
+            <isNotNull property="cLegalPhone" prepend=" AND ">
+                `C_LEGAL_PHONE` = #cLegalPhone#
+            </isNotNull>
+            <isNotNull property="cExecutive" prepend=" AND ">
+                `C_EXECUTIVE` = #cExecutive#
+            </isNotNull>
+            <isNotNull property="cExecutivePhone" prepend=" AND ">
+                `C_EXECUTIVE_PHONE` = #cExecutivePhone#
+            </isNotNull>
+            <isNotNull property="cEmail" prepend=" AND ">
+                `C_EMAIL` = #cEmail#
+            </isNotNull>
+            <isNotNull property="cWebOfficer" prepend=" AND ">
+                `C_WEB_OFFICER` = #cWebOfficer#
+            </isNotNull>
+            <isNotNull property="cWebOfficerPhone" prepend=" AND ">
+                `C_WEB_OFFICER_PHONE` = #cWebOfficerPhone#
+            </isNotNull>
+            <isNotNull property="cUrl" prepend=" AND ">
+                `C_URL` = #cUrl#
+            </isNotNull>
+            <isNotNull property="cLinkTel" prepend=" AND ">
+                `C_LINK_TEL` = #cLinkTel#
+            </isNotNull>
+            <isNotNull property="cCompany" prepend=" AND ">
+                `C_COMPANY` = #cCompany#
+            </isNotNull>
+            <isNotNull property="cRegisteredFund" prepend=" AND ">
+                `C_REGISTERED_FUND` = #cRegisteredFund#
+            </isNotNull>
+            <isNotNull property="cFormed" prepend=" AND ">
+                `C_FORMED` = #cFormed#
+            </isNotNull>
+            <isNotNull property="cProvinceId" prepend=" AND ">
+                `C_PROVINCE_ID` = #cProvinceId#
+            </isNotNull>
+            <isNotNull property="cCityId" prepend=" AND ">
+                `C_CITY_ID` = #cCityId#
+            </isNotNull>
+            <isNotNull property="cDistrictId" prepend=" AND ">
+                `C_DISTRICT_ID` = #cDistrictId#
+            </isNotNull>
+            <isNotNull property="cProvinceCity" prepend=" AND ">
+                `C_PROVINCE_CITY` = #cProvinceCity#
+            </isNotNull>
+            <isNotNull property="cAddress" prepend=" AND ">
+                `C_ADDRESS` = #cAddress#
+            </isNotNull>
+            <isNotNull property="cCoord" prepend=" AND ">
+                `C_COORD` = #cCoord#
+            </isNotNull>
+            <isNotNull property="cProperty" prepend=" AND ">
+                `C_PROPERTY` = #cProperty#
+            </isNotNull>
+            <isNotNull property="cClassify" prepend=" AND ">
+                `C_CLASSIFY` = #cClassify#
+            </isNotNull>
+            <isNotNull property="cLogo" prepend=" AND ">
+                `C_LOGO` = #cLogo#
+            </isNotNull>
+            <isNotNull property="cBus" prepend=" AND ">
+                `C_BUS` = #cBus#
+            </isNotNull>
+            <isNotNull property="cWechat" prepend=" AND ">
+                `C_WECHAT` = #cWechat#
+            </isNotNull>
+            <isNotNull property="cQq" prepend=" AND ">
+                `C_QQ` = #cQq#
+            </isNotNull>
+            <isNotNull property="cMetro" prepend=" AND ">
+                `C_METRO` = #cMetro#
+            </isNotNull>
+            <isNotNull property="cIndependent" prepend=" AND ">
+                `C_INDEPENDENT` = #cIndependent#
+            </isNotNull>
+            <isNotNull property="cJingymj" prepend=" AND ">
+                `C_JINGYMJ` = #cJingymj#
+            </isNotNull>
+            <isNotNull property="cWaitingArea" prepend=" AND ">
+                `C_WAITING_AREA` = #cWaitingArea#
+            </isNotNull>
+            <isNotNull property="cChildrenArea" prepend=" AND ">
+                `C_CHILDREN_AREA` = #cChildrenArea#
+            </isNotNull>
+            <isNotNull property="cDrNum" prepend=" AND ">
+                `C_DR_NUM` = #cDrNum#
+            </isNotNull>
+            <isNotNull property="cDhNum" prepend=" AND ">
+                `C_DH_NUM` = #cDhNum#
+            </isNotNull>
+            <isNotNull property="cDaNum" prepend=" AND ">
+                `C_DA_NUM` = #cDaNum#
+            </isNotNull>
+            <isNotNull property="cTcNum" prepend=" AND ">
+                `C_TC_NUM` = #cTcNum#
+            </isNotNull>
+            <isNotNull property="cCsNum" prepend=" AND ">
+                `C_CS_NUM` = #cCsNum#
+            </isNotNull>
+            <isNotNull property="cOrNum" prepend=" AND ">
+                `C_OR_NUM` = #cOrNum#
+            </isNotNull>
+            <isNotNull property="cIntroduce" prepend=" AND ">
+                `C_INTRODUCE` = #cIntroduce#
+            </isNotNull>
+            <isNotNull property="cStatus" prepend=" AND ">
+                `C_STATUS` = #cStatus#
+            </isNotNull>
+            <isNotNull property="cLat" prepend=" AND ">
+                `C_LAT` = #cLat#
+            </isNotNull>
+            <isNotNull property="cLng" prepend=" AND ">
+                `C_LNG` = #cLng#
+            </isNotNull>
+            <isNotNull property="cIsChain" prepend=" AND ">
+                `C_IS_CHAIN` = #cIsChain#
+            </isNotNull>
+            <isNotNull property="cChainBrand" prepend=" AND ">
+                `C_CHAIN_BRAND` = #cChainBrand#
+            </isNotNull>
+            <isNotNull property="cChainNum" prepend=" AND ">
+                `C_CHAIN_NUM` = #cChainNum#
+            </isNotNull>
+            <isNotNull property="cBusinessHour" prepend=" AND ">
+                `C_BUSINESS_HOUR` = #cBusinessHour#
+            </isNotNull>
+            <isNotNull property="cAgencyCertType" prepend=" AND ">
+                `C_AGENCY_CERT_TYPE` = #cAgencyCertType#
+            </isNotNull>
+            <isNotNull property="cMediccalInstType" prepend=" AND ">
+                `C_MEDICCAL_INST_TYPE` = #cMediccalInstType#
+            </isNotNull>
+            <isNotNull property="cLossesNearlyThreeYears" prepend=" AND ">
+                `C_LOSSES_NEARLY_THREE_YEARS` = #cLossesNearlyThreeYears#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        ORDER BY `ID` DESC
+        LIMIT #startRow#,#limit#;
+        ]]>
+
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询条数
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryCount" resultClass="java.lang.Integer">
+        <![CDATA[
+        SELECT
+        COUNT(*)
+        FROM `institution_check` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="id" prepend=" AND ">
+                `ID` = #id#
+            </isNotNull>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="cInstitutionNo" prepend=" AND ">
+                `C_INSTITUTION_NO` = #cInstitutionNo#
+            </isNotNull>
+            <isNotNull property="cHead" prepend=" AND ">
+                `C_HEAD` = #cHead#
+            </isNotNull>
+            <isNotNull property="cHeadPhone" prepend=" AND ">
+                `C_HEAD_PHONE` = #cHeadPhone#
+            </isNotNull>
+            <isNotNull property="cLegal" prepend=" AND ">
+                `C_LEGAL` = #cLegal#
+            </isNotNull>
+            <isNotNull property="cLegalPhone" prepend=" AND ">
+                `C_LEGAL_PHONE` = #cLegalPhone#
+            </isNotNull>
+            <isNotNull property="cExecutive" prepend=" AND ">
+                `C_EXECUTIVE` = #cExecutive#
+            </isNotNull>
+            <isNotNull property="cExecutivePhone" prepend=" AND ">
+                `C_EXECUTIVE_PHONE` = #cExecutivePhone#
+            </isNotNull>
+            <isNotNull property="cEmail" prepend=" AND ">
+                `C_EMAIL` = #cEmail#
+            </isNotNull>
+            <isNotNull property="cWebOfficer" prepend=" AND ">
+                `C_WEB_OFFICER` = #cWebOfficer#
+            </isNotNull>
+            <isNotNull property="cWebOfficerPhone" prepend=" AND ">
+                `C_WEB_OFFICER_PHONE` = #cWebOfficerPhone#
+            </isNotNull>
+            <isNotNull property="cUrl" prepend=" AND ">
+                `C_URL` = #cUrl#
+            </isNotNull>
+            <isNotNull property="cLinkTel" prepend=" AND ">
+                `C_LINK_TEL` = #cLinkTel#
+            </isNotNull>
+            <isNotNull property="cCompany" prepend=" AND ">
+                `C_COMPANY` = #cCompany#
+            </isNotNull>
+            <isNotNull property="cRegisteredFund" prepend=" AND ">
+                `C_REGISTERED_FUND` = #cRegisteredFund#
+            </isNotNull>
+            <isNotNull property="cFormed" prepend=" AND ">
+                `C_FORMED` = #cFormed#
+            </isNotNull>
+            <isNotNull property="cProvinceId" prepend=" AND ">
+                `C_PROVINCE_ID` = #cProvinceId#
+            </isNotNull>
+            <isNotNull property="cCityId" prepend=" AND ">
+                `C_CITY_ID` = #cCityId#
+            </isNotNull>
+            <isNotNull property="cDistrictId" prepend=" AND ">
+                `C_DISTRICT_ID` = #cDistrictId#
+            </isNotNull>
+            <isNotNull property="cProvinceCity" prepend=" AND ">
+                `C_PROVINCE_CITY` = #cProvinceCity#
+            </isNotNull>
+            <isNotNull property="cAddress" prepend=" AND ">
+                `C_ADDRESS` = #cAddress#
+            </isNotNull>
+            <isNotNull property="cCoord" prepend=" AND ">
+                `C_COORD` = #cCoord#
+            </isNotNull>
+            <isNotNull property="cProperty" prepend=" AND ">
+                `C_PROPERTY` = #cProperty#
+            </isNotNull>
+            <isNotNull property="cClassify" prepend=" AND ">
+                `C_CLASSIFY` = #cClassify#
+            </isNotNull>
+            <isNotNull property="cLogo" prepend=" AND ">
+                `C_LOGO` = #cLogo#
+            </isNotNull>
+            <isNotNull property="cBus" prepend=" AND ">
+                `C_BUS` = #cBus#
+            </isNotNull>
+            <isNotNull property="cWechat" prepend=" AND ">
+                `C_WECHAT` = #cWechat#
+            </isNotNull>
+            <isNotNull property="cQq" prepend=" AND ">
+                `C_QQ` = #cQq#
+            </isNotNull>
+            <isNotNull property="cMetro" prepend=" AND ">
+                `C_METRO` = #cMetro#
+            </isNotNull>
+            <isNotNull property="cIndependent" prepend=" AND ">
+                `C_INDEPENDENT` = #cIndependent#
+            </isNotNull>
+            <isNotNull property="cJingymj" prepend=" AND ">
+                `C_JINGYMJ` = #cJingymj#
+            </isNotNull>
+            <isNotNull property="cWaitingArea" prepend=" AND ">
+                `C_WAITING_AREA` = #cWaitingArea#
+            </isNotNull>
+            <isNotNull property="cChildrenArea" prepend=" AND ">
+                `C_CHILDREN_AREA` = #cChildrenArea#
+            </isNotNull>
+            <isNotNull property="cDrNum" prepend=" AND ">
+                `C_DR_NUM` = #cDrNum#
+            </isNotNull>
+            <isNotNull property="cDhNum" prepend=" AND ">
+                `C_DH_NUM` = #cDhNum#
+            </isNotNull>
+            <isNotNull property="cDaNum" prepend=" AND ">
+                `C_DA_NUM` = #cDaNum#
+            </isNotNull>
+            <isNotNull property="cTcNum" prepend=" AND ">
+                `C_TC_NUM` = #cTcNum#
+            </isNotNull>
+            <isNotNull property="cCsNum" prepend=" AND ">
+                `C_CS_NUM` = #cCsNum#
+            </isNotNull>
+            <isNotNull property="cOrNum" prepend=" AND ">
+                `C_OR_NUM` = #cOrNum#
+            </isNotNull>
+            <isNotNull property="cIntroduce" prepend=" AND ">
+                `C_INTRODUCE` = #cIntroduce#
+            </isNotNull>
+            <isNotNull property="cStatus" prepend=" AND ">
+                `C_STATUS` = #cStatus#
+            </isNotNull>
+            <isNotNull property="cLat" prepend=" AND ">
+                `C_LAT` = #cLat#
+            </isNotNull>
+            <isNotNull property="cLng" prepend=" AND ">
+                `C_LNG` = #cLng#
+            </isNotNull>
+            <isNotNull property="cIsChain" prepend=" AND ">
+                `C_IS_CHAIN` = #cIsChain#
+            </isNotNull>
+            <isNotNull property="cChainBrand" prepend=" AND ">
+                `C_CHAIN_BRAND` = #cChainBrand#
+            </isNotNull>
+            <isNotNull property="cChainNum" prepend=" AND ">
+                `C_CHAIN_NUM` = #cChainNum#
+            </isNotNull>
+            <isNotNull property="cBusinessHour" prepend=" AND ">
+                `C_BUSINESS_HOUR` = #cBusinessHour#
+            </isNotNull>
+            <isNotNull property="cAgencyCertType" prepend=" AND ">
+                `C_AGENCY_CERT_TYPE` = #cAgencyCertType#
+            </isNotNull>
+            <isNotNull property="cMediccalInstType" prepend=" AND ">
+                `C_MEDICCAL_INST_TYPE` = #cMediccalInstType#
+            </isNotNull>
+            <isNotNull property="cLossesNearlyThreeYears" prepend=" AND ">
+                `C_LOSSES_NEARLY_THREE_YEARS` = #cLossesNearlyThreeYears#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：物理删除单条数据
+           前台或后台：后台
+           频率：每天100以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <delete id="delete">
+        DELETE FROM `institution_check`  WHERE `ID` = #id#;
+    </delete>
+
+</sqlMap>

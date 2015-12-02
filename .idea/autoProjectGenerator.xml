@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PluginProjectConfig">
+    <option name="path" value="$PROJECT_DIR$/src/main/java/test" />
+    <option name="daoLogicDelete" value="false" />
+    <option name="managerUseBO" value="false" />
+    <option name="daoUseSequence" value="false" />
+    <option name="generateBase" value="true" />
+  </component>
+</project>

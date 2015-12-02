@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Generate by autoSQLMap Powered by duxing@Taobao -->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="IInsuranceSlipDAO">
+
+    <typeAlias alias="IInsuranceSlipDO" type="test.dal.dataobject.IInsuranceSlipDO"/>
+
+    <resultMap id="resultIInsuranceSlipDOMap" class="test.dal.dataobject.IInsuranceSlipDO">
+        <result property="id" column="ID"/>
+        <result property="cCreateBy" column="C_CREATE_BY"/>
+        <result property="cCreateDate" column="C_CREATE_DATE"/>
+        <result property="cUpdateBy" column="C_UPDATE_BY"/>
+        <result property="cUpdateDate" column="C_UPDATE_DATE"/>
+        <result property="cDeleteFlag" column="C_DELETE_FLAG"/>
+        <result property="insSlipNo" column="INS_SLIP_NO"/>
+        <result property="appType" column="APP_TYPE"/>
+        <result property="appId" column="APP_ID"/>
+        <result property="insStatus" column="INS_STATUS"/>
+        <result property="effectiveDatetime" column="EFFECTIVE_DATETIME"/>
+        <result property="expiryDatetime" column="EXPIRY_DATETIME"/>
+        <result property="insuranceCompany" column="INSURANCE_COMPANY"/>
+        <result property="payMethod" column="PAY_METHOD"/>
+        <result property="regularyPremium" column="REGULARY_PREMIUM"/>
+        <result property="nextpremiumDate" column="NEXTPREMIUM_DATE"/>
+        <result property="iPolicyMasterId" column="I_POLICY_MASTER_ID"/>
+        <result property="planInfoId" column="PLAN_INFO_ID"/>
+        <result property="mobile" column="MOBILE"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="provincecode" column="PROVINCECODE"/>
+        <result property="citycode" column="CITYCODE"/>
+        <result property="districtcode" column="DISTRICTCODE"/>
+        <result property="payStatus" column="PAY_STATUS"/>
+    </resultMap>
+
+    <sql id="allCols">
+                 `ID`
+                ,`C_CREATE_BY`
+                ,`C_CREATE_DATE`
+                ,`C_UPDATE_BY`
+                ,`C_UPDATE_DATE`
+                ,`C_DELETE_FLAG`
+                ,`INS_SLIP_NO`
+                ,`APP_TYPE`
+                ,`APP_ID`
+                ,`INS_STATUS`
+                ,`EFFECTIVE_DATETIME`
+                ,`EXPIRY_DATETIME`
+                ,`INSURANCE_COMPANY`
+                ,`PAY_METHOD`
+                ,`REGULARY_PREMIUM`
+                ,`NEXTPREMIUM_DATE`
+                ,`I_POLICY_MASTER_ID`
+                ,`PLAN_INFO_ID`
+                ,`MOBILE`
+                ,`ADDRESS`
+                ,`PROVINCECODE`
+                ,`CITYCODE`
+                ,`DISTRICTCODE`
+                ,`PAY_STATUS`
+    </sql>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：插入单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <insert id="insert" parameterClass="IInsuranceSlipDO">
+        <![CDATA[
+	    INSERT INTO `i_insurance_slip`(
+	    ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        )VALUES(
+                 #id#
+                ,#cCreateBy#
+                ,#cCreateDate#
+                ,#cUpdateBy#
+                ,#cUpdateDate#
+                ,#cDeleteFlag#
+                ,#insSlipNo#
+                ,#appType#
+                ,#appId#
+                ,#insStatus#
+                ,#effectiveDatetime#
+                ,#expiryDatetime#
+                ,#insuranceCompany#
+                ,#payMethod#
+                ,#regularyPremium#
+                ,#nextpremiumDate#
+                ,#iPolicyMasterId#
+                ,#planInfoId#
+                ,#mobile#
+                ,#address#
+                ,#provincecode#
+                ,#citycode#
+                ,#districtcode#
+                ,#payStatus#
+        );
+        ]]>
+
+    </insert>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：更新单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="update">
+        <![CDATA[
+        UPDATE `i_insurance_slip` SET `ID` = #id#;
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" , ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" , ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" , ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" , ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" , ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="insSlipNo" prepend=" , ">
+                `INS_SLIP_NO` = #insSlipNo#
+            </isNotNull>
+            <isNotNull property="appType" prepend=" , ">
+                `APP_TYPE` = #appType#
+            </isNotNull>
+            <isNotNull property="appId" prepend=" , ">
+                `APP_ID` = #appId#
+            </isNotNull>
+            <isNotNull property="insStatus" prepend=" , ">
+                `INS_STATUS` = #insStatus#
+            </isNotNull>
+            <isNotNull property="effectiveDatetime" prepend=" , ">
+                `EFFECTIVE_DATETIME` = #effectiveDatetime#
+            </isNotNull>
+            <isNotNull property="expiryDatetime" prepend=" , ">
+                `EXPIRY_DATETIME` = #expiryDatetime#
+            </isNotNull>
+            <isNotNull property="insuranceCompany" prepend=" , ">
+                `INSURANCE_COMPANY` = #insuranceCompany#
+            </isNotNull>
+            <isNotNull property="payMethod" prepend=" , ">
+                `PAY_METHOD` = #payMethod#
+            </isNotNull>
+            <isNotNull property="regularyPremium" prepend=" , ">
+                `REGULARY_PREMIUM` = #regularyPremium#
+            </isNotNull>
+            <isNotNull property="nextpremiumDate" prepend=" , ">
+                `NEXTPREMIUM_DATE` = #nextpremiumDate#
+            </isNotNull>
+            <isNotNull property="iPolicyMasterId" prepend=" , ">
+                `I_POLICY_MASTER_ID` = #iPolicyMasterId#
+            </isNotNull>
+            <isNotNull property="planInfoId" prepend=" , ">
+                `PLAN_INFO_ID` = #planInfoId#
+            </isNotNull>
+            <isNotNull property="mobile" prepend=" , ">
+                `MOBILE` = #mobile#
+            </isNotNull>
+            <isNotNull property="address" prepend=" , ">
+                `ADDRESS` = #address#
+            </isNotNull>
+            <isNotNull property="provincecode" prepend=" , ">
+                `PROVINCECODE` = #provincecode#
+            </isNotNull>
+            <isNotNull property="citycode" prepend=" , ">
+                `CITYCODE` = #citycode#
+            </isNotNull>
+            <isNotNull property="districtcode" prepend=" , ">
+                `DISTRICTCODE` = #districtcode#
+            </isNotNull>
+            <isNotNull property="payStatus" prepend=" , ">
+                `PAY_STATUS` = #payStatus#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        WHERE `ID` = #id#;
+    	]]>
+    </update>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+        -->
+    <select id="select" resultMap="resultIInsuranceSlipDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `i_insurance_slip` WHERE `ID` = #id#;
+        ]]>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询多条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryList" resultMap="resultIInsuranceSlipDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `i_insurance_slip` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="insSlipNo" prepend=" AND ">
+                `INS_SLIP_NO` = #insSlipNo#
+            </isNotNull>
+            <isNotNull property="appType" prepend=" AND ">
+                `APP_TYPE` = #appType#
+            </isNotNull>
+            <isNotNull property="appId" prepend=" AND ">
+                `APP_ID` = #appId#
+            </isNotNull>
+            <isNotNull property="insStatus" prepend=" AND ">
+                `INS_STATUS` = #insStatus#
+            </isNotNull>
+            <isNotNull property="effectiveDatetime" prepend=" AND ">
+                `EFFECTIVE_DATETIME` = #effectiveDatetime#
+            </isNotNull>
+            <isNotNull property="expiryDatetime" prepend=" AND ">
+                `EXPIRY_DATETIME` = #expiryDatetime#
+            </isNotNull>
+            <isNotNull property="insuranceCompany" prepend=" AND ">
+                `INSURANCE_COMPANY` = #insuranceCompany#
+            </isNotNull>
+            <isNotNull property="payMethod" prepend=" AND ">
+                `PAY_METHOD` = #payMethod#
+            </isNotNull>
+            <isNotNull property="regularyPremium" prepend=" AND ">
+                `REGULARY_PREMIUM` = #regularyPremium#
+            </isNotNull>
+            <isNotNull property="nextpremiumDate" prepend=" AND ">
+                `NEXTPREMIUM_DATE` = #nextpremiumDate#
+            </isNotNull>
+            <isNotNull property="iPolicyMasterId" prepend=" AND ">
+                `I_POLICY_MASTER_ID` = #iPolicyMasterId#
+            </isNotNull>
+            <isNotNull property="planInfoId" prepend=" AND ">
+                `PLAN_INFO_ID` = #planInfoId#
+            </isNotNull>
+            <isNotNull property="mobile" prepend=" AND ">
+                `MOBILE` = #mobile#
+            </isNotNull>
+            <isNotNull property="address" prepend=" AND ">
+                `ADDRESS` = #address#
+            </isNotNull>
+            <isNotNull property="provincecode" prepend=" AND ">
+                `PROVINCECODE` = #provincecode#
+            </isNotNull>
+            <isNotNull property="citycode" prepend=" AND ">
+                `CITYCODE` = #citycode#
+            </isNotNull>
+            <isNotNull property="districtcode" prepend=" AND ">
+                `DISTRICTCODE` = #districtcode#
+            </isNotNull>
+            <isNotNull property="payStatus" prepend=" AND ">
+                `PAY_STATUS` = #payStatus#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        ORDER BY `ID` DESC
+        LIMIT #startRow#,#limit#;
+        ]]>
+
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询条数
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryCount" resultClass="java.lang.Integer">
+        <![CDATA[
+        SELECT
+        COUNT(*)
+        FROM `i_insurance_slip` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="id" prepend=" AND ">
+                `ID` = #id#
+            </isNotNull>
+            <isNotNull property="cCreateBy" prepend=" AND ">
+                `C_CREATE_BY` = #cCreateBy#
+            </isNotNull>
+            <isNotNull property="cCreateDate" prepend=" AND ">
+                `C_CREATE_DATE` = #cCreateDate#
+            </isNotNull>
+            <isNotNull property="cUpdateBy" prepend=" AND ">
+                `C_UPDATE_BY` = #cUpdateBy#
+            </isNotNull>
+            <isNotNull property="cUpdateDate" prepend=" AND ">
+                `C_UPDATE_DATE` = #cUpdateDate#
+            </isNotNull>
+            <isNotNull property="cDeleteFlag" prepend=" AND ">
+                `C_DELETE_FLAG` = #cDeleteFlag#
+            </isNotNull>
+            <isNotNull property="insSlipNo" prepend=" AND ">
+                `INS_SLIP_NO` = #insSlipNo#
+            </isNotNull>
+            <isNotNull property="appType" prepend=" AND ">
+                `APP_TYPE` = #appType#
+            </isNotNull>
+            <isNotNull property="appId" prepend=" AND ">
+                `APP_ID` = #appId#
+            </isNotNull>
+            <isNotNull property="insStatus" prepend=" AND ">
+                `INS_STATUS` = #insStatus#
+            </isNotNull>
+            <isNotNull property="effectiveDatetime" prepend=" AND ">
+                `EFFECTIVE_DATETIME` = #effectiveDatetime#
+            </isNotNull>
+            <isNotNull property="expiryDatetime" prepend=" AND ">
+                `EXPIRY_DATETIME` = #expiryDatetime#
+            </isNotNull>
+            <isNotNull property="insuranceCompany" prepend=" AND ">
+                `INSURANCE_COMPANY` = #insuranceCompany#
+            </isNotNull>
+            <isNotNull property="payMethod" prepend=" AND ">
+                `PAY_METHOD` = #payMethod#
+            </isNotNull>
+            <isNotNull property="regularyPremium" prepend=" AND ">
+                `REGULARY_PREMIUM` = #regularyPremium#
+            </isNotNull>
+            <isNotNull property="nextpremiumDate" prepend=" AND ">
+                `NEXTPREMIUM_DATE` = #nextpremiumDate#
+            </isNotNull>
+            <isNotNull property="iPolicyMasterId" prepend=" AND ">
+                `I_POLICY_MASTER_ID` = #iPolicyMasterId#
+            </isNotNull>
+            <isNotNull property="planInfoId" prepend=" AND ">
+                `PLAN_INFO_ID` = #planInfoId#
+            </isNotNull>
+            <isNotNull property="mobile" prepend=" AND ">
+                `MOBILE` = #mobile#
+            </isNotNull>
+            <isNotNull property="address" prepend=" AND ">
+                `ADDRESS` = #address#
+            </isNotNull>
+            <isNotNull property="provincecode" prepend=" AND ">
+                `PROVINCECODE` = #provincecode#
+            </isNotNull>
+            <isNotNull property="citycode" prepend=" AND ">
+                `CITYCODE` = #citycode#
+            </isNotNull>
+            <isNotNull property="districtcode" prepend=" AND ">
+                `DISTRICTCODE` = #districtcode#
+            </isNotNull>
+            <isNotNull property="payStatus" prepend=" AND ">
+                `PAY_STATUS` = #payStatus#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：物理删除单条数据
+           前台或后台：后台
+           频率：每天100以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="delete">
+        UPDATE `i_insurance_slip` SET `{DELETE_KEY}` = '1' WHERE `ID` = #id#;
+    </update>
+
+</sqlMap>
