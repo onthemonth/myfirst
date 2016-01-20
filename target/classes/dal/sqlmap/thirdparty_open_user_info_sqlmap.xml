@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Generate by autoSQLMap Powered by duxing@Taobao -->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="ThirdpartyOpenUserInfoDAO">
+
+    <typeAlias alias="ThirdpartyOpenUserInfoDO" type="test.dal.dataobject.ThirdpartyOpenUserInfoDO"/>
+
+    <resultMap id="resultThirdpartyOpenUserInfoDOMap" class="test.dal.dataobject.ThirdpartyOpenUserInfoDO">
+        <result property="id" column="ID"/>
+        <result property="cUserBaseInfoId" column="C_USER_BASE_INFO_ID"/>
+        <result property="createDate" column="CREATE_DATE"/>
+        <result property="cOpenId" column="C_OPEN_ID"/>
+        <result property="cUnionId" column="C_UNION_ID"/>
+        <result property="cRefreshToken" column="C_REFRESH_TOKEN"/>
+    </resultMap>
+
+    <sql id="allCols">
+                 ID
+                ,C_USER_BASE_INFO_ID
+                ,CREATE_DATE
+                ,C_OPEN_ID
+                ,C_UNION_ID
+                ,C_REFRESH_TOKEN
+    </sql>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：插入单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <insert id="insert" parameterClass="ThirdpartyOpenUserInfoDO">
+        <![CDATA[
+	    INSERT INTO thirdparty_open_user_info(
+	    ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        )VALUES(
+                 #id#
+                ,#cUserBaseInfoId#
+                ,#createDate#
+                ,#cOpenId#
+                ,#cUnionId#
+                ,#cRefreshToken#
+        );
+        ]]>
+        <selectKey resultClass="String" keyProperty="id" >
+            SELECT @@IDENTITY AS ID
+        </selectKey>
+    </insert>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：更新单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="update">
+        <![CDATA[
+        UPDATE thirdparty_open_user_info SET ID = #id#;
+        ]]>
+        <dynamic>
+            <isNotNull property="cUserBaseInfoId" prepend=" , ">
+                C_USER_BASE_INFO_ID = #cUserBaseInfoId#
+            </isNotNull>
+            <isNotNull property="createDate" prepend=" , ">
+                CREATE_DATE = #createDate#
+            </isNotNull>
+            <isNotNull property="cOpenId" prepend=" , ">
+                C_OPEN_ID = #cOpenId#
+            </isNotNull>
+            <isNotNull property="cUnionId" prepend=" , ">
+                C_UNION_ID = #cUnionId#
+            </isNotNull>
+            <isNotNull property="cRefreshToken" prepend=" , ">
+                C_REFRESH_TOKEN = #cRefreshToken#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        WHERE ID = #id#;
+    	]]>
+    </update>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+        -->
+    <select id="select" resultMap="resultThirdpartyOpenUserInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM thirdparty_open_user_info WHERE ID = #id#;
+        ]]>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询多条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryList" resultMap="resultThirdpartyOpenUserInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM thirdparty_open_user_info WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="cUserBaseInfoId" prepend=" AND ">
+                C_USER_BASE_INFO_ID = #cUserBaseInfoId#
+            </isNotNull>
+            <isNotNull property="createDate" prepend=" AND ">
+                CREATE_DATE = #createDate#
+            </isNotNull>
+            <isNotNull property="cOpenId" prepend=" AND ">
+                C_OPEN_ID = #cOpenId#
+            </isNotNull>
+            <isNotNull property="cUnionId" prepend=" AND ">
+                C_UNION_ID = #cUnionId#
+            </isNotNull>
+            <isNotNull property="cRefreshToken" prepend=" AND ">
+                C_REFRESH_TOKEN = #cRefreshToken#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        ORDER BY ID DESC
+        LIMIT #startRow#,#limit#;
+        ]]>
+
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询条数
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryCount" resultClass="java.lang.Integer">
+        <![CDATA[
+        SELECT
+        COUNT(*)
+        FROM thirdparty_open_user_info WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="id" prepend=" AND ">
+                ID = #id#
+            </isNotNull>
+            <isNotNull property="cUserBaseInfoId" prepend=" AND ">
+                C_USER_BASE_INFO_ID = #cUserBaseInfoId#
+            </isNotNull>
+            <isNotNull property="createDate" prepend=" AND ">
+                CREATE_DATE = #createDate#
+            </isNotNull>
+            <isNotNull property="cOpenId" prepend=" AND ">
+                C_OPEN_ID = #cOpenId#
+            </isNotNull>
+            <isNotNull property="cUnionId" prepend=" AND ">
+                C_UNION_ID = #cUnionId#
+            </isNotNull>
+            <isNotNull property="cRefreshToken" prepend=" AND ">
+                C_REFRESH_TOKEN = #cRefreshToken#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：物理删除单条数据
+           前台或后台：后台
+           频率：每天100以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <delete id="delete">
+        DELETE FROM thirdparty_open_user_info  WHERE ID = #id#;
+    </delete>
+
+</sqlMap>

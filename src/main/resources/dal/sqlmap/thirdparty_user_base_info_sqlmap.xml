@@ -1,0 +1,300 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Generate by autoSQLMap Powered by duxing@Taobao -->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="ThirdpartyUserBaseInfoDAO">
+
+    <typeAlias alias="ThirdpartyUserBaseInfoDO" type="test.dal.dataobject.ThirdpartyUserBaseInfoDO"/>
+
+    <resultMap id="resultThirdpartyUserBaseInfoDOMap" class="test.dal.dataobject.ThirdpartyUserBaseInfoDO">
+        <result property="id" column="ID"/>
+        <result property="createDate" column="CREATE_DATE"/>
+        <result property="updateDate" column="UPDATE_DATE"/>
+        <result property="leyaUserRelId" column="LEYA_USER_REL_ID"/>
+        <result property="cUnionid" column="C_UNIONID"/>
+        <result property="cNickName" column="C_NICK_NAME"/>
+        <result property="cSex" column="C_SEX"/>
+        <result property="cLanguage" column="C_LANGUAGE"/>
+        <result property="cProvince" column="C_PROVINCE"/>
+        <result property="cCity" column="C_CITY"/>
+        <result property="cCountry" column="C_COUNTRY"/>
+        <result property="cHeadimgurl" column="C_HEADIMGURL"/>
+        <result property="cInfoSource" column="C_INFO_SOURCE"/>
+        <result property="isDwHeadimage" column="IS_DW_HEADIMAGE"/>
+    </resultMap>
+
+    <sql id="allCols">
+                 ID
+                ,CREATE_DATE
+                ,UPDATE_DATE
+                ,LEYA_USER_REL_ID
+                ,C_UNIONID
+                ,C_NICK_NAME
+                ,C_SEX
+                ,C_LANGUAGE
+                ,C_PROVINCE
+                ,C_CITY
+                ,C_COUNTRY
+                ,C_HEADIMGURL
+                ,C_INFO_SOURCE
+                ,IS_DW_HEADIMAGE
+    </sql>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：插入单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <insert id="insert" parameterClass="ThirdpartyUserBaseInfoDO">
+        <![CDATA[
+	    INSERT INTO thirdparty_user_base_info(
+	    ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        )VALUES(
+                 #id#
+                ,#createDate#
+                ,#updateDate#
+                ,#leyaUserRelId#
+                ,#cUnionid#
+                ,#cNickName#
+                ,#cSex#
+                ,#cLanguage#
+                ,#cProvince#
+                ,#cCity#
+                ,#cCountry#
+                ,#cHeadimgurl#
+                ,#cInfoSource#
+                ,#isDwHeadimage#
+        );
+        ]]>
+        <selectKey resultClass="String" keyProperty="id" >
+            SELECT @@IDENTITY AS ID
+        </selectKey>
+    </insert>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：更新单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="update">
+        <![CDATA[
+        UPDATE thirdparty_user_base_info SET ID = #id#;
+        ]]>
+        <dynamic>
+            <isNotNull property="createDate" prepend=" , ">
+                CREATE_DATE = #createDate#
+            </isNotNull>
+            <isNotNull property="updateDate" prepend=" , ">
+                UPDATE_DATE = #updateDate#
+            </isNotNull>
+            <isNotNull property="leyaUserRelId" prepend=" , ">
+                LEYA_USER_REL_ID = #leyaUserRelId#
+            </isNotNull>
+            <isNotNull property="cUnionid" prepend=" , ">
+                C_UNIONID = #cUnionid#
+            </isNotNull>
+            <isNotNull property="cNickName" prepend=" , ">
+                C_NICK_NAME = #cNickName#
+            </isNotNull>
+            <isNotNull property="cSex" prepend=" , ">
+                C_SEX = #cSex#
+            </isNotNull>
+            <isNotNull property="cLanguage" prepend=" , ">
+                C_LANGUAGE = #cLanguage#
+            </isNotNull>
+            <isNotNull property="cProvince" prepend=" , ">
+                C_PROVINCE = #cProvince#
+            </isNotNull>
+            <isNotNull property="cCity" prepend=" , ">
+                C_CITY = #cCity#
+            </isNotNull>
+            <isNotNull property="cCountry" prepend=" , ">
+                C_COUNTRY = #cCountry#
+            </isNotNull>
+            <isNotNull property="cHeadimgurl" prepend=" , ">
+                C_HEADIMGURL = #cHeadimgurl#
+            </isNotNull>
+            <isNotNull property="cInfoSource" prepend=" , ">
+                C_INFO_SOURCE = #cInfoSource#
+            </isNotNull>
+            <isNotNull property="isDwHeadimage" prepend=" , ">
+                IS_DW_HEADIMAGE = #isDwHeadimage#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        WHERE ID = #id#;
+    	]]>
+    </update>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+        -->
+    <select id="select" resultMap="resultThirdpartyUserBaseInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM thirdparty_user_base_info WHERE ID = #id#;
+        ]]>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询多条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryList" resultMap="resultThirdpartyUserBaseInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM thirdparty_user_base_info WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="createDate" prepend=" AND ">
+                CREATE_DATE = #createDate#
+            </isNotNull>
+            <isNotNull property="updateDate" prepend=" AND ">
+                UPDATE_DATE = #updateDate#
+            </isNotNull>
+            <isNotNull property="leyaUserRelId" prepend=" AND ">
+                LEYA_USER_REL_ID = #leyaUserRelId#
+            </isNotNull>
+            <isNotNull property="cUnionid" prepend=" AND ">
+                C_UNIONID = #cUnionid#
+            </isNotNull>
+            <isNotNull property="cNickName" prepend=" AND ">
+                C_NICK_NAME = #cNickName#
+            </isNotNull>
+            <isNotNull property="cSex" prepend=" AND ">
+                C_SEX = #cSex#
+            </isNotNull>
+            <isNotNull property="cLanguage" prepend=" AND ">
+                C_LANGUAGE = #cLanguage#
+            </isNotNull>
+            <isNotNull property="cProvince" prepend=" AND ">
+                C_PROVINCE = #cProvince#
+            </isNotNull>
+            <isNotNull property="cCity" prepend=" AND ">
+                C_CITY = #cCity#
+            </isNotNull>
+            <isNotNull property="cCountry" prepend=" AND ">
+                C_COUNTRY = #cCountry#
+            </isNotNull>
+            <isNotNull property="cHeadimgurl" prepend=" AND ">
+                C_HEADIMGURL = #cHeadimgurl#
+            </isNotNull>
+            <isNotNull property="cInfoSource" prepend=" AND ">
+                C_INFO_SOURCE = #cInfoSource#
+            </isNotNull>
+            <isNotNull property="isDwHeadimage" prepend=" AND ">
+                IS_DW_HEADIMAGE = #isDwHeadimage#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        ORDER BY ID DESC
+        LIMIT #startRow#,#limit#;
+        ]]>
+
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询条数
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryCount" resultClass="java.lang.Integer">
+        <![CDATA[
+        SELECT
+        COUNT(*)
+        FROM thirdparty_user_base_info WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="id" prepend=" AND ">
+                ID = #id#
+            </isNotNull>
+            <isNotNull property="createDate" prepend=" AND ">
+                CREATE_DATE = #createDate#
+            </isNotNull>
+            <isNotNull property="updateDate" prepend=" AND ">
+                UPDATE_DATE = #updateDate#
+            </isNotNull>
+            <isNotNull property="leyaUserRelId" prepend=" AND ">
+                LEYA_USER_REL_ID = #leyaUserRelId#
+            </isNotNull>
+            <isNotNull property="cUnionid" prepend=" AND ">
+                C_UNIONID = #cUnionid#
+            </isNotNull>
+            <isNotNull property="cNickName" prepend=" AND ">
+                C_NICK_NAME = #cNickName#
+            </isNotNull>
+            <isNotNull property="cSex" prepend=" AND ">
+                C_SEX = #cSex#
+            </isNotNull>
+            <isNotNull property="cLanguage" prepend=" AND ">
+                C_LANGUAGE = #cLanguage#
+            </isNotNull>
+            <isNotNull property="cProvince" prepend=" AND ">
+                C_PROVINCE = #cProvince#
+            </isNotNull>
+            <isNotNull property="cCity" prepend=" AND ">
+                C_CITY = #cCity#
+            </isNotNull>
+            <isNotNull property="cCountry" prepend=" AND ">
+                C_COUNTRY = #cCountry#
+            </isNotNull>
+            <isNotNull property="cHeadimgurl" prepend=" AND ">
+                C_HEADIMGURL = #cHeadimgurl#
+            </isNotNull>
+            <isNotNull property="cInfoSource" prepend=" AND ">
+                C_INFO_SOURCE = #cInfoSource#
+            </isNotNull>
+            <isNotNull property="isDwHeadimage" prepend=" AND ">
+                IS_DW_HEADIMAGE = #isDwHeadimage#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：物理删除单条数据
+           前台或后台：后台
+           频率：每天100以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <delete id="delete">
+        DELETE FROM thirdparty_user_base_info  WHERE ID = #id#;
+    </delete>
+
+</sqlMap>

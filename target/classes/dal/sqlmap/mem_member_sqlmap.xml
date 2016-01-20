@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Generate by autoSQLMap Powered by duxing@Taobao -->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="MemMemberDAO">
+
+    <typeAlias alias="MemMemberDO" type="test.dal.dataobject.MemMemberDO"/>
+
+    <resultMap id="resultMemMemberDOMap" class="test.dal.dataobject.MemMemberDO">
+        <result property="id" column="ID"/>
+        <result property="createBy" column="CREATE_BY"/>
+        <result property="createDate" column="CREATE_DATE"/>
+        <result property="updateBy" column="UPDATE_BY"/>
+        <result property="updateDate" column="UPDATE_DATE"/>
+        <result property="deleteFlag" column="DELETE_FLAG"/>
+        <result property="account" column="ACCOUNT"/>
+        <result property="password" column="PASSWORD"/>
+        <result property="nickName" column="NICK_NAME"/>
+        <result property="name" column="NAME"/>
+        <result property="sex" column="SEX"/>
+        <result property="birthdate" column="BIRTHDATE"/>
+        <result property="idCard" column="ID_CARD"/>
+        <result property="nationality" column="NATIONALITY"/>
+        <result property="nation" column="NATION"/>
+        <result property="nativePlace" column="NATIVE_PLACE"/>
+        <result property="photo" column="PHOTO"/>
+        <result property="mobile" column="MOBILE"/>
+        <result property="email" column="EMAIL"/>
+        <result property="provinceId" column="PROVINCE_ID"/>
+        <result property="cityId" column="CITY_ID"/>
+        <result property="districtId" column="DISTRICT_ID"/>
+        <result property="provinceCity" column="PROVINCE_CITY"/>
+        <result property="postcode" column="POSTCODE"/>
+        <result property="address" column="ADDRESS"/>
+        <result property="level" column="LEVEL"/>
+        <result property="status" column="STATUS"/>
+        <result property="huZhao" column="HU_ZHAO"/>
+        <result property="groupCompant" column="GROUP_COMPANT"/>
+        <result property="medicalCard" column="MEDICAL_CARD"/>
+        <result property="compant" column="COMPANT"/>
+        <result property="memberId" column="MEMBER_ID"/>
+        <result property="score" column="SCORE"/>
+        <result property="idcardtype" column="IDCARDTYPE"/>
+        <result property="customerId" column="CUSTOMER_ID"/>
+    </resultMap>
+
+    <sql id="allCols">
+                 ID
+                ,CREATE_BY
+                ,CREATE_DATE
+                ,UPDATE_BY
+                ,UPDATE_DATE
+                ,DELETE_FLAG
+                ,ACCOUNT
+                ,PASSWORD
+                ,NICK_NAME
+                ,NAME
+                ,SEX
+                ,BIRTHDATE
+                ,ID_CARD
+                ,NATIONALITY
+                ,NATION
+                ,NATIVE_PLACE
+                ,PHOTO
+                ,MOBILE
+                ,EMAIL
+                ,PROVINCE_ID
+                ,CITY_ID
+                ,DISTRICT_ID
+                ,PROVINCE_CITY
+                ,POSTCODE
+                ,ADDRESS
+                ,LEVEL
+                ,STATUS
+                ,HU_ZHAO
+                ,GROUP_COMPANT
+                ,MEDICAL_CARD
+                ,COMPANT
+                ,MEMBER_ID
+                ,SCORE
+                ,IDCARDTYPE
+                ,CUSTOMER_ID
+    </sql>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：插入单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <insert id="insert" parameterClass="MemMemberDO">
+        <![CDATA[
+	    INSERT INTO mem_member(
+	    ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        )VALUES(
+                 #id#
+                ,#createBy#
+                ,#createDate#
+                ,#updateBy#
+                ,#updateDate#
+                ,#deleteFlag#
+                ,#account#
+                ,#password#
+                ,#nickName#
+                ,#name#
+                ,#sex#
+                ,#birthdate#
+                ,#idCard#
+                ,#nationality#
+                ,#nation#
+                ,#nativePlace#
+                ,#photo#
+                ,#mobile#
+                ,#email#
+                ,#provinceId#
+                ,#cityId#
+                ,#districtId#
+                ,#provinceCity#
+                ,#postcode#
+                ,#address#
+                ,#level#
+                ,#status#
+                ,#huZhao#
+                ,#groupCompant#
+                ,#medicalCard#
+                ,#compant#
+                ,#memberId#
+                ,#score#
+                ,#idcardtype#
+                ,#customerId#
+        );
+        ]]>
+        <selectKey resultClass="String" keyProperty="id" >
+            SELECT @@IDENTITY AS ID
+        </selectKey>
+    </insert>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：更新单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="update">
+        <![CDATA[
+        UPDATE mem_member SET ID = #id#;
+        ]]>
+        <dynamic>
+            <isNotNull property="createBy" prepend=" , ">
+                CREATE_BY = #createBy#
+            </isNotNull>
+            <isNotNull property="createDate" prepend=" , ">
+                CREATE_DATE = #createDate#
+            </isNotNull>
+            <isNotNull property="updateBy" prepend=" , ">
+                UPDATE_BY = #updateBy#
+            </isNotNull>
+            <isNotNull property="updateDate" prepend=" , ">
+                UPDATE_DATE = #updateDate#
+            </isNotNull>
+            <isNotNull property="deleteFlag" prepend=" , ">
+                DELETE_FLAG = #deleteFlag#
+            </isNotNull>
+            <isNotNull property="account" prepend=" , ">
+                ACCOUNT = #account#
+            </isNotNull>
+            <isNotNull property="password" prepend=" , ">
+                PASSWORD = #password#
+            </isNotNull>
+            <isNotNull property="nickName" prepend=" , ">
+                NICK_NAME = #nickName#
+            </isNotNull>
+            <isNotNull property="name" prepend=" , ">
+                NAME = #name#
+            </isNotNull>
+            <isNotNull property="sex" prepend=" , ">
+                SEX = #sex#
+            </isNotNull>
+            <isNotNull property="birthdate" prepend=" , ">
+                BIRTHDATE = #birthdate#
+            </isNotNull>
+            <isNotNull property="idCard" prepend=" , ">
+                ID_CARD = #idCard#
+            </isNotNull>
+            <isNotNull property="nationality" prepend=" , ">
+                NATIONALITY = #nationality#
+            </isNotNull>
+            <isNotNull property="nation" prepend=" , ">
+                NATION = #nation#
+            </isNotNull>
+            <isNotNull property="nativePlace" prepend=" , ">
+                NATIVE_PLACE = #nativePlace#
+            </isNotNull>
+            <isNotNull property="photo" prepend=" , ">
+                PHOTO = #photo#
+            </isNotNull>
+            <isNotNull property="mobile" prepend=" , ">
+                MOBILE = #mobile#
+            </isNotNull>
+            <isNotNull property="email" prepend=" , ">
+                EMAIL = #email#
+            </isNotNull>
+            <isNotNull property="provinceId" prepend=" , ">
+                PROVINCE_ID = #provinceId#
+            </isNotNull>
+            <isNotNull property="cityId" prepend=" , ">
+                CITY_ID = #cityId#
+            </isNotNull>
+            <isNotNull property="districtId" prepend=" , ">
+                DISTRICT_ID = #districtId#
+            </isNotNull>
+            <isNotNull property="provinceCity" prepend=" , ">
+                PROVINCE_CITY = #provinceCity#
+            </isNotNull>
+            <isNotNull property="postcode" prepend=" , ">
+                POSTCODE = #postcode#
+            </isNotNull>
+            <isNotNull property="address" prepend=" , ">
+                ADDRESS = #address#
+            </isNotNull>
+            <isNotNull property="level" prepend=" , ">
+                LEVEL = #level#
+            </isNotNull>
+            <isNotNull property="status" prepend=" , ">
+                STATUS = #status#
+            </isNotNull>
+            <isNotNull property="huZhao" prepend=" , ">
+                HU_ZHAO = #huZhao#
+            </isNotNull>
+            <isNotNull property="groupCompant" prepend=" , ">
+                GROUP_COMPANT = #groupCompant#
+            </isNotNull>
+            <isNotNull property="medicalCard" prepend=" , ">
+                MEDICAL_CARD = #medicalCard#
+            </isNotNull>
+            <isNotNull property="compant" prepend=" , ">
+                COMPANT = #compant#
+            </isNotNull>
+            <isNotNull property="memberId" prepend=" , ">
+                MEMBER_ID = #memberId#
+            </isNotNull>
+            <isNotNull property="score" prepend=" , ">
+                SCORE = #score#
+            </isNotNull>
+            <isNotNull property="idcardtype" prepend=" , ">
+                IDCARDTYPE = #idcardtype#
+            </isNotNull>
+            <isNotNull property="customerId" prepend=" , ">
+                CUSTOMER_ID = #customerId#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        WHERE ID = #id#;
+    	]]>
+    </update>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+        -->
+    <select id="select" resultMap="resultMemMemberDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM mem_member WHERE ID = #id#;
+        ]]>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询多条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryList" resultMap="resultMemMemberDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM mem_member WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="createBy" prepend=" AND ">
+                CREATE_BY = #createBy#
+            </isNotNull>
+            <isNotNull property="createDate" prepend=" AND ">
+                CREATE_DATE = #createDate#
+            </isNotNull>
+            <isNotNull property="updateBy" prepend=" AND ">
+                UPDATE_BY = #updateBy#
+            </isNotNull>
+            <isNotNull property="updateDate" prepend=" AND ">
+                UPDATE_DATE = #updateDate#
+            </isNotNull>
+            <isNotNull property="deleteFlag" prepend=" AND ">
+                DELETE_FLAG = #deleteFlag#
+            </isNotNull>
+            <isNotNull property="account" prepend=" AND ">
+                ACCOUNT = #account#
+            </isNotNull>
+            <isNotNull property="password" prepend=" AND ">
+                PASSWORD = #password#
+            </isNotNull>
+            <isNotNull property="nickName" prepend=" AND ">
+                NICK_NAME = #nickName#
+            </isNotNull>
+            <isNotNull property="name" prepend=" AND ">
+                NAME = #name#
+            </isNotNull>
+            <isNotNull property="sex" prepend=" AND ">
+                SEX = #sex#
+            </isNotNull>
+            <isNotNull property="birthdate" prepend=" AND ">
+                BIRTHDATE = #birthdate#
+            </isNotNull>
+            <isNotNull property="idCard" prepend=" AND ">
+                ID_CARD = #idCard#
+            </isNotNull>
+            <isNotNull property="nationality" prepend=" AND ">
+                NATIONALITY = #nationality#
+            </isNotNull>
+            <isNotNull property="nation" prepend=" AND ">
+                NATION = #nation#
+            </isNotNull>
+            <isNotNull property="nativePlace" prepend=" AND ">
+                NATIVE_PLACE = #nativePlace#
+            </isNotNull>
+            <isNotNull property="photo" prepend=" AND ">
+                PHOTO = #photo#
+            </isNotNull>
+            <isNotNull property="mobile" prepend=" AND ">
+                MOBILE = #mobile#
+            </isNotNull>
+            <isNotNull property="email" prepend=" AND ">
+                EMAIL = #email#
+            </isNotNull>
+            <isNotNull property="provinceId" prepend=" AND ">
+                PROVINCE_ID = #provinceId#
+            </isNotNull>
+            <isNotNull property="cityId" prepend=" AND ">
+                CITY_ID = #cityId#
+            </isNotNull>
+            <isNotNull property="districtId" prepend=" AND ">
+                DISTRICT_ID = #districtId#
+            </isNotNull>
+            <isNotNull property="provinceCity" prepend=" AND ">
+                PROVINCE_CITY = #provinceCity#
+            </isNotNull>
+            <isNotNull property="postcode" prepend=" AND ">
+                POSTCODE = #postcode#
+            </isNotNull>
+            <isNotNull property="address" prepend=" AND ">
+                ADDRESS = #address#
+            </isNotNull>
+            <isNotNull property="level" prepend=" AND ">
+                LEVEL = #level#
+            </isNotNull>
+            <isNotNull property="status" prepend=" AND ">
+                STATUS = #status#
+            </isNotNull>
+            <isNotNull property="huZhao" prepend=" AND ">
+                HU_ZHAO = #huZhao#
+            </isNotNull>
+            <isNotNull property="groupCompant" prepend=" AND ">
+                GROUP_COMPANT = #groupCompant#
+            </isNotNull>
+            <isNotNull property="medicalCard" prepend=" AND ">
+                MEDICAL_CARD = #medicalCard#
+            </isNotNull>
+            <isNotNull property="compant" prepend=" AND ">
+                COMPANT = #compant#
+            </isNotNull>
+            <isNotNull property="memberId" prepend=" AND ">
+                MEMBER_ID = #memberId#
+            </isNotNull>
+            <isNotNull property="score" prepend=" AND ">
+                SCORE = #score#
+            </isNotNull>
+            <isNotNull property="idcardtype" prepend=" AND ">
+                IDCARDTYPE = #idcardtype#
+            </isNotNull>
+            <isNotNull property="customerId" prepend=" AND ">
+                CUSTOMER_ID = #customerId#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        ORDER BY ID DESC
+        LIMIT #startRow#,#limit#;
+        ]]>
+
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询条数
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryCount" resultClass="java.lang.Integer">
+        <![CDATA[
+        SELECT
+        COUNT(*)
+        FROM mem_member WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="id" prepend=" AND ">
+                ID = #id#
+            </isNotNull>
+            <isNotNull property="createBy" prepend=" AND ">
+                CREATE_BY = #createBy#
+            </isNotNull>
+            <isNotNull property="createDate" prepend=" AND ">
+                CREATE_DATE = #createDate#
+            </isNotNull>
+            <isNotNull property="updateBy" prepend=" AND ">
+                UPDATE_BY = #updateBy#
+            </isNotNull>
+            <isNotNull property="updateDate" prepend=" AND ">
+                UPDATE_DATE = #updateDate#
+            </isNotNull>
+            <isNotNull property="deleteFlag" prepend=" AND ">
+                DELETE_FLAG = #deleteFlag#
+            </isNotNull>
+            <isNotNull property="account" prepend=" AND ">
+                ACCOUNT = #account#
+            </isNotNull>
+            <isNotNull property="password" prepend=" AND ">
+                PASSWORD = #password#
+            </isNotNull>
+            <isNotNull property="nickName" prepend=" AND ">
+                NICK_NAME = #nickName#
+            </isNotNull>
+            <isNotNull property="name" prepend=" AND ">
+                NAME = #name#
+            </isNotNull>
+            <isNotNull property="sex" prepend=" AND ">
+                SEX = #sex#
+            </isNotNull>
+            <isNotNull property="birthdate" prepend=" AND ">
+                BIRTHDATE = #birthdate#
+            </isNotNull>
+            <isNotNull property="idCard" prepend=" AND ">
+                ID_CARD = #idCard#
+            </isNotNull>
+            <isNotNull property="nationality" prepend=" AND ">
+                NATIONALITY = #nationality#
+            </isNotNull>
+            <isNotNull property="nation" prepend=" AND ">
+                NATION = #nation#
+            </isNotNull>
+            <isNotNull property="nativePlace" prepend=" AND ">
+                NATIVE_PLACE = #nativePlace#
+            </isNotNull>
+            <isNotNull property="photo" prepend=" AND ">
+                PHOTO = #photo#
+            </isNotNull>
+            <isNotNull property="mobile" prepend=" AND ">
+                MOBILE = #mobile#
+            </isNotNull>
+            <isNotNull property="email" prepend=" AND ">
+                EMAIL = #email#
+            </isNotNull>
+            <isNotNull property="provinceId" prepend=" AND ">
+                PROVINCE_ID = #provinceId#
+            </isNotNull>
+            <isNotNull property="cityId" prepend=" AND ">
+                CITY_ID = #cityId#
+            </isNotNull>
+            <isNotNull property="districtId" prepend=" AND ">
+                DISTRICT_ID = #districtId#
+            </isNotNull>
+            <isNotNull property="provinceCity" prepend=" AND ">
+                PROVINCE_CITY = #provinceCity#
+            </isNotNull>
+            <isNotNull property="postcode" prepend=" AND ">
+                POSTCODE = #postcode#
+            </isNotNull>
+            <isNotNull property="address" prepend=" AND ">
+                ADDRESS = #address#
+            </isNotNull>
+            <isNotNull property="level" prepend=" AND ">
+                LEVEL = #level#
+            </isNotNull>
+            <isNotNull property="status" prepend=" AND ">
+                STATUS = #status#
+            </isNotNull>
+            <isNotNull property="huZhao" prepend=" AND ">
+                HU_ZHAO = #huZhao#
+            </isNotNull>
+            <isNotNull property="groupCompant" prepend=" AND ">
+                GROUP_COMPANT = #groupCompant#
+            </isNotNull>
+            <isNotNull property="medicalCard" prepend=" AND ">
+                MEDICAL_CARD = #medicalCard#
+            </isNotNull>
+            <isNotNull property="compant" prepend=" AND ">
+                COMPANT = #compant#
+            </isNotNull>
+            <isNotNull property="memberId" prepend=" AND ">
+                MEMBER_ID = #memberId#
+            </isNotNull>
+            <isNotNull property="score" prepend=" AND ">
+                SCORE = #score#
+            </isNotNull>
+            <isNotNull property="idcardtype" prepend=" AND ">
+                IDCARDTYPE = #idcardtype#
+            </isNotNull>
+            <isNotNull property="customerId" prepend=" AND ">
+                CUSTOMER_ID = #customerId#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：物理删除单条数据
+           前台或后台：后台
+           频率：每天100以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <delete id="delete">
+        DELETE FROM mem_member  WHERE ID = #id#;
+    </delete>
+
+</sqlMap>

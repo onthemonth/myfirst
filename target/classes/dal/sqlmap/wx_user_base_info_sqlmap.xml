@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Generate by autoSQLMap Powered by duxing@Taobao -->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="WxUserBaseInfoDAO">
+
+    <typeAlias alias="WxUserBaseInfoDO" type="test.dal.dataobject.WxUserBaseInfoDO"/>
+
+    <resultMap id="resultWxUserBaseInfoDOMap" class="test.dal.dataobject.WxUserBaseInfoDO">
+        <result property="id" column="ID"/>
+        <result property="createDate" column="CREATE_DATE"/>
+        <result property="updateDate" column="UPDATE_DATE"/>
+        <result property="leyaUserRelId" column="LEYA_USER_REL_ID"/>
+        <result property="wxUnionid" column="WX_UNIONID"/>
+        <result property="wxNickName" column="WX_NICK_NAME"/>
+        <result property="wxSex" column="WX_SEX"/>
+        <result property="wxLanguage" column="WX_LANGUAGE"/>
+        <result property="wxProvince" column="WX_PROVINCE"/>
+        <result property="wxCity" column="WX_CITY"/>
+        <result property="wxCountry" column="WX_COUNTRY"/>
+        <result property="wxHeadimgurl" column="WX_HEADIMGURL"/>
+        <result property="isDwHeadimage" column="IS_DW_HEADIMAGE"/>
+    </resultMap>
+
+    <sql id="allCols">
+                 `ID`
+                ,`CREATE_DATE`
+                ,`UPDATE_DATE`
+                ,`LEYA_USER_REL_ID`
+                ,`WX_UNIONID`
+                ,`WX_NICK_NAME`
+                ,`WX_SEX`
+                ,`WX_LANGUAGE`
+                ,`WX_PROVINCE`
+                ,`WX_CITY`
+                ,`WX_COUNTRY`
+                ,`WX_HEADIMGURL`
+                ,`IS_DW_HEADIMAGE`
+    </sql>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：插入单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <insert id="insert" parameterClass="WxUserBaseInfoDO">
+        <![CDATA[
+	    INSERT INTO `wx_user_base_info`(
+	    ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        )VALUES(
+                 #id#
+                ,#createDate#
+                ,#updateDate#
+                ,#leyaUserRelId#
+                ,#wxUnionid#
+                ,#wxNickName#
+                ,#wxSex#
+                ,#wxLanguage#
+                ,#wxProvince#
+                ,#wxCity#
+                ,#wxCountry#
+                ,#wxHeadimgurl#
+                ,#isDwHeadimage#
+        );
+        ]]>
+        <selectKey resultClass="String" keyProperty="id" >
+            SELECT @@IDENTITY AS ID
+        </selectKey>
+    </insert>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：更新单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="update">
+        <![CDATA[
+        UPDATE `wx_user_base_info` SET `ID` = #id#;
+        ]]>
+        <dynamic>
+            <isNotNull property="createDate" prepend=" , ">
+                `CREATE_DATE` = #createDate#
+            </isNotNull>
+            <isNotNull property="updateDate" prepend=" , ">
+                `UPDATE_DATE` = #updateDate#
+            </isNotNull>
+            <isNotNull property="leyaUserRelId" prepend=" , ">
+                `LEYA_USER_REL_ID` = #leyaUserRelId#
+            </isNotNull>
+            <isNotNull property="wxUnionid" prepend=" , ">
+                `WX_UNIONID` = #wxUnionid#
+            </isNotNull>
+            <isNotNull property="wxNickName" prepend=" , ">
+                `WX_NICK_NAME` = #wxNickName#
+            </isNotNull>
+            <isNotNull property="wxSex" prepend=" , ">
+                `WX_SEX` = #wxSex#
+            </isNotNull>
+            <isNotNull property="wxLanguage" prepend=" , ">
+                `WX_LANGUAGE` = #wxLanguage#
+            </isNotNull>
+            <isNotNull property="wxProvince" prepend=" , ">
+                `WX_PROVINCE` = #wxProvince#
+            </isNotNull>
+            <isNotNull property="wxCity" prepend=" , ">
+                `WX_CITY` = #wxCity#
+            </isNotNull>
+            <isNotNull property="wxCountry" prepend=" , ">
+                `WX_COUNTRY` = #wxCountry#
+            </isNotNull>
+            <isNotNull property="wxHeadimgurl" prepend=" , ">
+                `WX_HEADIMGURL` = #wxHeadimgurl#
+            </isNotNull>
+            <isNotNull property="isDwHeadimage" prepend=" , ">
+                `IS_DW_HEADIMAGE` = #isDwHeadimage#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        WHERE `ID` = #id#;
+    	]]>
+    </update>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+        -->
+    <select id="select" resultMap="resultWxUserBaseInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `wx_user_base_info` WHERE `ID` = #id#;
+        ]]>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询多条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryList" resultMap="resultWxUserBaseInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `wx_user_base_info` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="createDate" prepend=" AND ">
+                `CREATE_DATE` = #createDate#
+            </isNotNull>
+            <isNotNull property="updateDate" prepend=" AND ">
+                `UPDATE_DATE` = #updateDate#
+            </isNotNull>
+            <isNotNull property="leyaUserRelId" prepend=" AND ">
+                `LEYA_USER_REL_ID` = #leyaUserRelId#
+            </isNotNull>
+            <isNotNull property="wxUnionid" prepend=" AND ">
+                `WX_UNIONID` = #wxUnionid#
+            </isNotNull>
+            <isNotNull property="wxNickName" prepend=" AND ">
+                `WX_NICK_NAME` = #wxNickName#
+            </isNotNull>
+            <isNotNull property="wxSex" prepend=" AND ">
+                `WX_SEX` = #wxSex#
+            </isNotNull>
+            <isNotNull property="wxLanguage" prepend=" AND ">
+                `WX_LANGUAGE` = #wxLanguage#
+            </isNotNull>
+            <isNotNull property="wxProvince" prepend=" AND ">
+                `WX_PROVINCE` = #wxProvince#
+            </isNotNull>
+            <isNotNull property="wxCity" prepend=" AND ">
+                `WX_CITY` = #wxCity#
+            </isNotNull>
+            <isNotNull property="wxCountry" prepend=" AND ">
+                `WX_COUNTRY` = #wxCountry#
+            </isNotNull>
+            <isNotNull property="wxHeadimgurl" prepend=" AND ">
+                `WX_HEADIMGURL` = #wxHeadimgurl#
+            </isNotNull>
+            <isNotNull property="isDwHeadimage" prepend=" AND ">
+                `IS_DW_HEADIMAGE` = #isDwHeadimage#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        ORDER BY `ID` DESC
+        LIMIT #startRow#,#limit#;
+        ]]>
+
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询条数
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryCount" resultClass="java.lang.Integer">
+        <![CDATA[
+        SELECT
+        COUNT(*)
+        FROM `wx_user_base_info` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="id" prepend=" AND ">
+                `ID` = #id#
+            </isNotNull>
+            <isNotNull property="createDate" prepend=" AND ">
+                `CREATE_DATE` = #createDate#
+            </isNotNull>
+            <isNotNull property="updateDate" prepend=" AND ">
+                `UPDATE_DATE` = #updateDate#
+            </isNotNull>
+            <isNotNull property="leyaUserRelId" prepend=" AND ">
+                `LEYA_USER_REL_ID` = #leyaUserRelId#
+            </isNotNull>
+            <isNotNull property="wxUnionid" prepend=" AND ">
+                `WX_UNIONID` = #wxUnionid#
+            </isNotNull>
+            <isNotNull property="wxNickName" prepend=" AND ">
+                `WX_NICK_NAME` = #wxNickName#
+            </isNotNull>
+            <isNotNull property="wxSex" prepend=" AND ">
+                `WX_SEX` = #wxSex#
+            </isNotNull>
+            <isNotNull property="wxLanguage" prepend=" AND ">
+                `WX_LANGUAGE` = #wxLanguage#
+            </isNotNull>
+            <isNotNull property="wxProvince" prepend=" AND ">
+                `WX_PROVINCE` = #wxProvince#
+            </isNotNull>
+            <isNotNull property="wxCity" prepend=" AND ">
+                `WX_CITY` = #wxCity#
+            </isNotNull>
+            <isNotNull property="wxCountry" prepend=" AND ">
+                `WX_COUNTRY` = #wxCountry#
+            </isNotNull>
+            <isNotNull property="wxHeadimgurl" prepend=" AND ">
+                `WX_HEADIMGURL` = #wxHeadimgurl#
+            </isNotNull>
+            <isNotNull property="isDwHeadimage" prepend=" AND ">
+                `IS_DW_HEADIMAGE` = #isDwHeadimage#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：物理删除单条数据
+           前台或后台：后台
+           频率：每天100以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <delete id="delete">
+        DELETE FROM `wx_user_base_info`  WHERE `ID` = #id#;
+    </delete>
+
+</sqlMap>

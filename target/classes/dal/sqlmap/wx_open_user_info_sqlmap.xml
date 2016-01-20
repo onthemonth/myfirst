@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--  Generate by autoSQLMap Powered by duxing@Taobao -->
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN" "http://ibatis.apache.org/dtd/sql-map-2.dtd" >
+<sqlMap namespace="WxOpenUserInfoDAO">
+
+    <typeAlias alias="WxOpenUserInfoDO" type="test.dal.dataobject.WxOpenUserInfoDO"/>
+
+    <resultMap id="resultWxOpenUserInfoDOMap" class="test.dal.dataobject.WxOpenUserInfoDO">
+        <result property="id" column="ID"/>
+        <result property="createDate" column="CREATE_DATE"/>
+        <result property="wxOpenId" column="WX_OPEN_ID"/>
+        <result property="wxUnionId" column="WX_UNION_ID"/>
+        <result property="wxRefreshToken" column="WX_REFRESH_TOKEN"/>
+    </resultMap>
+
+    <sql id="allCols">
+                 `ID`
+                ,`CREATE_DATE`
+                ,`WX_OPEN_ID`
+                ,`WX_UNION_ID`
+                ,`WX_REFRESH_TOKEN`
+    </sql>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：插入单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <insert id="insert" parameterClass="WxOpenUserInfoDO">
+        <![CDATA[
+	    INSERT INTO `wx_open_user_info`(
+	    ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        )VALUES(
+                 #id#
+                ,#createDate#
+                ,#wxOpenId#
+                ,#wxUnionId#
+                ,#wxRefreshToken#
+        );
+        ]]>
+        <selectKey resultClass="String" keyProperty="id" >
+            SELECT @@IDENTITY AS ID
+        </selectKey>
+    </insert>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：更新单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <update id="update">
+        <![CDATA[
+        UPDATE `wx_open_user_info` SET `ID` = #id#;
+        ]]>
+        <dynamic>
+            <isNotNull property="createDate" prepend=" , ">
+                `CREATE_DATE` = #createDate#
+            </isNotNull>
+            <isNotNull property="wxOpenId" prepend=" , ">
+                `WX_OPEN_ID` = #wxOpenId#
+            </isNotNull>
+            <isNotNull property="wxUnionId" prepend=" , ">
+                `WX_UNION_ID` = #wxUnionId#
+            </isNotNull>
+            <isNotNull property="wxRefreshToken" prepend=" , ">
+                `WX_REFRESH_TOKEN` = #wxRefreshToken#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        WHERE `ID` = #id#;
+    	]]>
+    </update>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询单条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+        -->
+    <select id="select" resultMap="resultWxOpenUserInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `wx_open_user_info` WHERE `ID` = #id#;
+        ]]>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询多条数据
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryList" resultMap="resultWxOpenUserInfoDOMap">
+        <![CDATA[
+        SELECT
+        ]]>
+        <include refid="allCols"/>
+        <![CDATA[
+        FROM `wx_open_user_info` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="createDate" prepend=" AND ">
+                `CREATE_DATE` = #createDate#
+            </isNotNull>
+            <isNotNull property="wxOpenId" prepend=" AND ">
+                `WX_OPEN_ID` = #wxOpenId#
+            </isNotNull>
+            <isNotNull property="wxUnionId" prepend=" AND ">
+                `WX_UNION_ID` = #wxUnionId#
+            </isNotNull>
+            <isNotNull property="wxRefreshToken" prepend=" AND ">
+                `WX_REFRESH_TOKEN` = #wxRefreshToken#
+            </isNotNull>
+        </dynamic>
+        <![CDATA[
+        ORDER BY `ID` DESC
+        LIMIT #startRow#,#limit#;
+        ]]>
+
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：查询条数
+           前台或后台：后台
+           频率：每天1000以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+           可能的条件组合:
+           1.
+    -->
+    <select id="queryCount" resultClass="java.lang.Integer">
+        <![CDATA[
+        SELECT
+        COUNT(*)
+        FROM `wx_open_user_info` WHERE  1
+        ]]>
+        <dynamic>
+            <isNotNull property="id" prepend=" AND ">
+                `ID` = #id#
+            </isNotNull>
+            <isNotNull property="createDate" prepend=" AND ">
+                `CREATE_DATE` = #createDate#
+            </isNotNull>
+            <isNotNull property="wxOpenId" prepend=" AND ">
+                `WX_OPEN_ID` = #wxOpenId#
+            </isNotNull>
+            <isNotNull property="wxUnionId" prepend=" AND ">
+                `WX_UNION_ID` = #wxUnionId#
+            </isNotNull>
+            <isNotNull property="wxRefreshToken" prepend=" AND ">
+                `WX_REFRESH_TOKEN` = #wxRefreshToken#
+            </isNotNull>
+        </dynamic>
+    </select>
+
+    <!--
+           开发负责人：duxing //change at Setting Tab
+           功能说明：物理删除单条数据
+           前台或后台：后台
+           频率：每天100以下
+           表大小：10W
+           分表数量：无
+           是否有缓存：无
+    -->
+    <delete id="delete">
+        DELETE FROM `wx_open_user_info`  WHERE `ID` = #id#;
+    </delete>
+
+</sqlMap>
